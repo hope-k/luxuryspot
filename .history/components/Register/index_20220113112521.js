@@ -142,8 +142,8 @@ const Register = () => {
                                     <div>
                                         <figure className='avatar mr-3 item-rtl'>
                                             <motion.img
-                                                animate={{ opacity: [0, 1] }}
-                                                transition={{ ease: [-.6, .01, -.05, .95], duration: 2 }}
+                                            animate={{opacaity}}
+                                                transition={{ ease: [-.6, .01, -.05, .95], duration: 1.8 }}
                                                 src={avatarPreview}
                                                 className='rounded-circle'
                                                 alt='image'
@@ -156,7 +156,7 @@ const Register = () => {
                                             name='avatar'
                                             className='custom-fileee-input w-100'
                                             id='customFile'
-                                            accept="application/msword,image/gif,image/jpeg,application/pdf,image/png,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/zip,.doc,.gif,.jpeg,.jpg,.pdf,.png,.xls,.xlsx,.zip/images/*"
+                                            accept="application/msword,image/gif,image/jpeg,application/pdf,image/png,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/zip,.doc,.gif,.jpeg,.jpg,.pdf,.png,.xls,.xlsx,.zip/images/*" 
                                             onChange={onChange}
                                         />
 

@@ -291,7 +291,7 @@ const UpdateRoom = () => {
                                                 name="roomImages"
                                                 className="custom-filee-input w-100"
                                                 id="customFile"
-                                                accept="application/msword,image/gif,image/jpeg,application/pdf,image/png,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/zip,.doc,.gif,.jpeg,.jpg,.pdf,.png,.xls,.xlsx,.zip/images/*"                                                    
+                                                
                                                 multiple={true}
                                                 onChange={onFileChange}
 

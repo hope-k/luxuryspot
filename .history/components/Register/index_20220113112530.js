@@ -143,7 +143,7 @@ const Register = () => {
                                         <figure className='avatar mr-3 item-rtl'>
                                             <motion.img
                                                 animate={{ opacity: [0, 1] }}
-                                                transition={{ ease: [-.6, .01, -.05, .95], duration: 2 }}
+                                                transition={{ ease: [-.6, .01, -.05, .95], duration: 1.8 }}
                                                 src={avatarPreview}
                                                 className='rounded-circle'
                                                 alt='image'

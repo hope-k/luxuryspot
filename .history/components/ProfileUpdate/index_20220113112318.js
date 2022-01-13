@@ -124,7 +124,7 @@ const UpdateProfile = () => {
                                     <div className='form-group rale fw-bold'>
                                         <label htmlFor='avatar_upload'>Avatar</label>
                                         <div className='d-flex align-items-center'>
-                                            <motion.div animate={{ opacity: [0, 1] }} transition={ {ease: [-.6, .01, -.05, .95], duration: 1.8 }}>
+                                            <motion.div animate={{ opacity: [0, 1], transition: { ease: [-.6, .0], duration: 1.8 } }}>
                                                 <figure className='avatar mr-3 item-rtl'>
                                                     <motion.img
                                                         layout
