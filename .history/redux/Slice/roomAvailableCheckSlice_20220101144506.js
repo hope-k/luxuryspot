@@ -5,7 +5,7 @@ import { NEXT_URL } from '../../config/config';
 export const checkAvailability = createAsyncThunk('checkAvailability/roomAvailabilitySlice', async ({ id, checkInDate, checkOutDate }, { rejectWithValue }) => {
     try {
 
-        const { data } = await axios.get(`/api/bookings/checkAvailability/?roomId=${id}&checkInDate=${checkInDate}&checkOutDate=${checkOutDate}`);
+        const { data } = await axios.get(`${NEXT_URL}/api/bookings/checkAvailability/?roomId=${id}&checkInDate=${checkInDate}&checkOutDate=${checkOutDate}`);
 
         return data
 
