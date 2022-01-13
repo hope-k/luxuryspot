@@ -643,7 +643,7 @@ input::placeholder {
 .custom-fileee-input::-webkit-file-upload-button {
   visibility: hidden;
 }
-.custom-fileee-input::-webkit-file-selector-button {
+.custom-fileee-input::-webkit-file-selec-button {
   visibility: hidden;
 }
 .custom-fileee-input::before {

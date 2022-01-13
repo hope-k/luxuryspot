@@ -664,7 +664,7 @@ input::placeholder {
   transition: all .55s ease-in-out
 }
 .custom-fileee-input:hover::before {
-  border-color: black;
+  border-color: white;
   
 }
 

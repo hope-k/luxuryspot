@@ -642,8 +642,7 @@ input::placeholder {
 /* for avatar */
 .custom-fileee-input::-webkit-file-upload-button {
   visibility: hidden;
-}
-.custom-fileee-input::-webkit-file-selector-button {
+}.custom-fileee-input::-webkit-file-upload-button {
   visibility: hidden;
 }
 .custom-fileee-input::before {
