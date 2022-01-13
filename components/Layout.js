@@ -10,33 +10,36 @@ import { motion } from 'framer-motion'
 
 
 const variants = {
-    hidden: { opacity: 0, scale: 0.98 },
-    show: { opacity: 1,  scale: 1},
+    hidden: { opacity: 0, scale: 1.09 },
+    show: { opacity: 1, scale: 1 },
     exit: { opacity: 0, scale: 0 },
 }
 
 const Layout = ({ children, title = 'Book Best Apartments' }) => {
     return (
         <>
-            <motion.main
-                variants={variants}
-                initial='hidden'
-                animate='show'
-                exit='exit'
-                transition={{ type: 'linear', duration: .25,}}
-            >
-                <Head>
-                    <title>{title}</title>
-                    <meta charSet='utf-8' />
-                    <meta name='viewport' content='initial-scale=1.0' />
-                </Head>
-                <Header />
-                <ToastContainer position='bottom-right' transition={Flip} />
-                {children}
-                <Footer />
-            </motion.main>
+            <div className='registerContainer'>
+
+                <motion.main
+                    variants={variants}
+                    initial='hidden'
+                    animate='show'
+                    exit='exit'
+                    transition={{ ease: [.6, .01, -.05, .95], duration: .8 }}
+                >
+                    <Head>
+                        <title>{title}</title>
+                        <meta charSet='utf-8' />
+                        <meta name='viewport' content='initial-scale=1.0' />
+                    </Head>
+                    <Header />
+                    <ToastContainer position='bottom-right' transition={Flip} />
+                        {children}
+                    <Footer />
+                </motion.main>
 
 
+            </div>
         </>
 
     )

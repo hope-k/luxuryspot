@@ -16,7 +16,7 @@ const ForgotPassword = () => {
 
     useEffect(() => {
         if (success) {
-            toast.success(success, { theme: 'colored', style: {borderRadius: '2rem'}, });
+            toast.success(success, { theme: 'colored', style: { borderRadius: '2rem' }, });
             dispatch(resetForgotPassword());
         }
         if (error) {
@@ -30,35 +30,39 @@ const ForgotPassword = () => {
         dispatch(forgotPassword(userData));
     }
     return (
-        <div className="row wrapper">
-            <div className="col-10 col-lg-5">
-                <form className="shadow-lg fw-normal addRadius formBackground" onSubmit={onSubmit} >
-                    <h1 className="mb-3 fw-light rale">Reset Your Password</h1>
-                    <div className="form-group">
-                        <label htmlFor="email_field">Enter Your Email</label>
-                        <input
-                            type="email"
-                            id="email_field"
-                            className="form-control addRadius"
-                            value={email}
-                            name='email'
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </div>
+        <>
 
-                    <button
-                        id="forgot_password_button"
-                        type="submit"
-                        className="btn btn-block py-3 rale"
-                        disabled={loading && true}
-                    >
-                        {loading ? <ButtonLoader /> : 'Send Email'}
 
-                    </button>
+            <div className="row wrapper text-white">
+                <div className="col-10 col-lg-5">
+                    <form className="shadow-lg fw-normal addRadius formBackground" onSubmit={onSubmit} >
+                        <h1 className="mb-3 fw-light rale text-white">Reset Your Password</h1>
+                        <div className="form-group">
+                            <label htmlFor="email_field">Enter Your Email</label>
+                            <input
+                                type="email"
+                                id="email_field"
+                                className="form-control addRadius rale"
+                                value={email}
+                                name='email'
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
 
-                </form>
+                        <button
+                            id="forgot_password_button"
+                            type="submit"
+                            className="btn btn-block py-3 rale"
+                            disabled={loading && true}
+                        >
+                            {loading ? <ButtonLoader /> : 'Send Email'}
+
+                        </button>
+
+                    </form>
+                </div>
             </div>
-        </div>
+        </>
 
     )
 }

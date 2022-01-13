@@ -259,7 +259,7 @@ const NewRoom = () => {
                                 imagesPreview.map(img => (
                                     
                                     <motion.img
-                                        animate={{opacity: [0, 1], x:[-55, 0], transition: {type: 'linear', duration: .8}}}
+                                        animate={{opacity: [0, 1], x:[-55, 0], transition: {ease: [.6,.01,-.05, .95 ], duration: .8}}}
                                         exit={{ opacity: 0, y: 55, transition: { type: 'linear', duration: .8 } }}
                                         src={img}
                                         key={img}

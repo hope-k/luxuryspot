@@ -21,20 +21,23 @@ const Search = () => {
 
     }
     return (
-        <div className="container container-fluid">
+        <div className="container container-fluid text-white">
             <div className="row wrapper ">
                 <div className="col-10 col-lg-5 ">
                     <form className="shadow-lg addRadius fw-normal formBackground" onSubmit={onSubmit}>
-                        <h2 className="mb-3 fw-light rale">Search Rooms <FcSearch/> </h2>
+                        <h2 className="mb-3 fw-light rale text-white">Search Rooms <FcSearch/> </h2>
                         <div className="form-group rale fw-bold">
                             <label htmlFor="location_field">By Location    <HiOutlineLocationMarker className='ml-1 mb-1' /> </label>
                             <input
                                 type="text"
-                                className="form-control addRadius"
+                                className="form-control addRadius searchPlaceholder"
                                 id="location_field"
-                                placeholder="East Legon"
+                                placeholder="Accra, East Legon, Cantonments, Spintex"
                                 value={location}
                                 onChange={(e) => setLocation(e.target.value)}
+                                style={{
+                                    
+                                }}
                             />
                         </div>
 

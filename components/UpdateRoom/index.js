@@ -301,8 +301,9 @@ const UpdateRoom = () => {
                                         {
                                             imagesPreview.map(img => (
                                                 <motion.img
-                                                    animate={{ opacity: [0, 1], x: [-55, 0], transition: { type: 'linear', duration: .8 } }}
-                                                    exit={{ opacity: 0, y: 55, transition: { type: 'linear', duration: .8 } }}
+                                                    animate={{ opacity: [0, 1], x: [-55, 0] }}
+                                                    exit={{ opacity: 0, y: 55}}
+                                                    transition={{ ease: [.6, .01, -.05, .95], duration: 1.8 }}
                                                     src={img}
                                                     key={img}
                                                     alt="Images Preview"
@@ -317,8 +318,9 @@ const UpdateRoom = () => {
                                         {
                                             oldImages && oldImages.map(img => (
                                                 <motion.img
-                                                    animate={{ opacity: [0, 1], x: [-55, 0], transition: { type: 'linear', duration: .8 } }}
-                                                    exit={{ opacity: 0, y: 55, transition: { type: 'linear', duration: .8 } }}
+                                                    animate={{ opacity: [0, 1], x: [-55, 0],  }}
+                                                    exit={{ opacity: 0, y: 55 }}
+                                                    transition= {{ease: [.6, .01, -.05, .95], duration: 8 }}
                                                     src={img.url}
                                                     key={img.public_id}
                                                     alt="Images Preview"
@@ -332,7 +334,9 @@ const UpdateRoom = () => {
                                         }
                                     </div>
                                     <button
-                                        type="submit" className="btn w-100 d-block new-room-btn py-3">
+                                        type="submit" className="btn w-100 d-block new-room-btn py-3"
+                                        disabled={loading && true}
+                                        >
                                         {
                                             loading ? <ButtonLoader /> : <span className='rale'>Update Room <GrUpdate className='ml-2' style={{ color: 'white' }} /></span>
                                         }

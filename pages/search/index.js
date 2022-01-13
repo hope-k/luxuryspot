@@ -5,8 +5,11 @@ import Layout from "../../components/Layout";
 
 export default function Index() {
     return (
-        <Layout title='Search Rooms'>
-            <Search />
-        </Layout>
+        <>
+            <div className="searchBackground"></div>
+            <Layout title='Search Rooms'>
+                <Search />
+            </Layout>
+        </>
     )
 }

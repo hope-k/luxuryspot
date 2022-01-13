@@ -122,17 +122,16 @@ const UpdateProfile = () => {
                                     <div className='form-group rale fw-bold'>
                                         <label htmlFor='avatar_upload'>Avatar</label>
                                         <div className='d-flex align-items-center'>
-                                            <div>
+                                            <motion.div animate={{ opacity: [0, 1], transition: { type: 'linear', duration: 1.8 } }}>
                                                 <figure className='avatar mr-3 item-rtl'>
                                                     <motion.img
                                                         layout
-                                                        animate={{opacity: [0, 1], transition: {type: 'linear', duration: 1.8}}}
                                                         src={avatarPreview}
                                                         className='rounded-circle'
                                                         alt='Default Preview'
                                                     />
                                                 </figure>
-                                            </div>
+                                            </motion.div>
                                             <div >
                                                 <input
                                                     type='file'
@@ -151,6 +150,7 @@ const UpdateProfile = () => {
                                         id="update-btn"
                                         type="submit"
                                         className="btn btn-block py-3 update-btn rale"
+                                        disabled={loading && true}
                                     >
                                         {
                                             updateLoading ? <ButtonLoader /> : 'Update Profile' 

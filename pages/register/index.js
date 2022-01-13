@@ -6,9 +6,14 @@ import { getSession } from 'next-auth/react';
 
 export default function RegisterPage() {
     return (
-        <Layout title='Sign Up'>
-            <Register />
-        </Layout>
+        <>
+            <div className="gradientBackground"></div>
+                <Layout title='Sign Up'>
+                    <Register />
+                </Layout>
+
+
+        </>
     )
 }
 
@@ -21,10 +26,9 @@ export async function getServerSideProps({ req }) {
                 destination: '/',
                 permanent: false
             }
-
         }
     }
     return {
-        props: {session}
+        props: { session }
     }
 }

@@ -13,18 +13,18 @@ cloudinary.config({
 
 //get all the rooms from api/rooms route dir via a get request
 const allRooms = asyncErrorHandler(async (req, res) => {
-    const resPerPage = 4;
+    const resPerPage = 8;
     const roomCount = await Room.countDocuments();
     const apiFeatures = new APIFeatures(Room.find(), req.query)
         .search()
         .filter();
-        
+
     //initially variable rooms displayed passes through the search and filter method
     let rooms = await apiFeatures.query;
     let filteredRoomCount = rooms.length;
     //the variable rooms below is reassigned because it passes through the pagination method
     apiFeatures.pagination(resPerPage);
-    rooms = await apiFeatures.query.sort({_id:-1});
+    rooms = await apiFeatures.query.sort({ _id: -1 });
     const currentPageRoomCount = rooms.length;
     const currentPage = apiFeatures.currentPage;
 
@@ -49,11 +49,8 @@ const allRooms = asyncErrorHandler(async (req, res) => {
 //creates a room(s) document from the request body 
 const newRooms = asyncErrorHandler(async (req, res) => {
     try {
-        
+
         const images = req.body.images;
-        console.log('====================================');
-        console.log(req.body.name);
-        console.log('====================================');
         let imagesLinks = [];
 
         for (let i = 0; i < images.length; i++) {
@@ -84,6 +81,7 @@ const newRooms = asyncErrorHandler(async (req, res) => {
 });
 //get a single room via a get request from the client 
 const getRoom = asyncErrorHandler(async (req, res, next) => {
+
     try {
         const room = await Room.findById(req.query.id);
         if (!room) {
@@ -149,7 +147,7 @@ const updateRoom = asyncErrorHandler(async (req, res) => {
             room: room
 
         });
-    }catch(err){
+    } catch (err) {
         res.json({
             error: err.message
         })
@@ -160,12 +158,12 @@ const updateRoom = asyncErrorHandler(async (req, res) => {
 //delete a document via a delete request 
 const deleteRoom = asyncErrorHandler(async (req, res) => {
 
-    try{
+    try {
         const room = await Room.findById(req.query.id);
         if (!room) {
             return next(new ErrorHandler('Room not found with this id!!!', 400));
         }
-        for(let i = 0; i < room.images.length; i++ ){
+        for (let i = 0; i < room.images.length; i++) {
             await cloudinary.uploader.destroy(room.images[i].public_id)
         }
         await room.remove();
@@ -175,7 +173,7 @@ const deleteRoom = asyncErrorHandler(async (req, res) => {
             message: 'Room was successfully removed'
         })
 
-    }catch(err){
+    } catch (err) {
         res.json({
             error: err.message
         })
@@ -191,7 +189,8 @@ const createRoomReview = asyncErrorHandler(async (req, res) => {
         user: req.user._id,
         name: req.user.name,
         rating: Number(ratings),
-        comment: comment
+        comment: comment,
+        createdAt: Date.now()
     }
     try {
         const room = await Room.findById(roomId);
@@ -207,6 +206,7 @@ const createRoomReview = asyncErrorHandler(async (req, res) => {
                 if (review.user.toString() === req.user._id.toString()) {
                     review.comment = comment;
                     review.rating = ratings;
+                    review.createdAt = Date.now()
                 }
             })
 
@@ -251,6 +251,8 @@ const allAdminRooms = asyncErrorHandler(async (req, res) => {
 const getRoomReviews = asyncErrorHandler(async (req, res) => {
     const room = await Room.findById(req.query.id)
 
+    
+
     res.status(200).json({
         success: true,
         reviews: room.reviews
@@ -261,27 +263,27 @@ const getRoomReviews = asyncErrorHandler(async (req, res) => {
 });
 //delete reviews of room - ADMIN => /api/reviews/
 const deleteRoomReviews = asyncErrorHandler(async (req, res) => {
-    try{
+    try {
         const room = await Room.findById(req.query.roomId)
         //best to filter because we anted to recalculate the rating since we filtered out the ones we needed from the deleted ones
         const reviews = room.reviews.filter(review => review._id.toString() !== req.query.id.toString())
         const numOfReviews = reviews.length;
         const ratings = room.reviews.reduce((acc, item) => item.rating + acc, 0) / numOfReviews
 
-        const updateRoom =  await Room.findById(req.query.roomId);
+        const updateRoom = await Room.findById(req.query.roomId);
         updateRoom.reviews = reviews
         updateRoom.ratings = ratings
         updateRoom.numOfReviews = numOfReviews
         await updateRoom.save()
 
 
-    
+
         res.status(200).json({
             success: true,
-    
+
         });
 
-    }catch(err){
+    } catch (err) {
         res.json({
             error: err.message
         })
@@ -301,6 +303,6 @@ export {
     allAdminRooms,
     getRoomReviews,
     deleteRoomReviews
-    
+
 
 }

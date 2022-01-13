@@ -5,9 +5,13 @@ import ForgotPassword from '../../components/ForgotPassword';
 
 export default function ForgotPasswordPage() {
     return (
-        <Layout title='Forgot Password'>
-            <ForgotPassword />
-        </Layout>
+        <>
+            <div className="searchBackground"></div>
+
+            <Layout title='Forgot Password'>
+                <ForgotPassword />
+            </Layout>
+        </>
     )
 }
 

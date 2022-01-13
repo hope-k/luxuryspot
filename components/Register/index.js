@@ -6,8 +6,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { registerUser, clearRegisterUserError, resetRegister } from '../../redux/Slice/registerUserSlice';
 import Link from 'next/link'
 import { BiUserPlus } from 'react-icons/bi'
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
+import { motion } from 'framer-motion'
+
+
 
 const Register = () => {
+    const MotionVisible = motion(AiOutlineEye);
+    const MotionInvisible = motion(AiOutlineEyeInvisible)
+    const [visible, setVisibility] = useState(false);
+    const toggleVisibility = () => {
+        setVisibility(!visible)
+    }
     const dispatch = useDispatch();
     const router = useRouter();
     const [user, setUser] = useState({
@@ -68,91 +78,110 @@ const Register = () => {
 
 
     return (
-        <div className="container container-fluid">
-            <div className="row wrapper">
-                <div className="col-10 col-lg-5">
-                    <form className="shadow-lg fw-normal addRadius formBackground" onSubmit={onSubmit}>
-                        <h2 className="mb-3 fw-light rale">Create a new account <BiUserPlus className='mb-2' /></h2>
+        <>
 
-                        <div className="form-group rale fw-bold">
-                            <label htmlFor="name_field">Full Name</label>
-                            <input
-                                type="text"
-                                id="name_field"
-                                className="form-control addRadius"
-                                value={name}
-                                onChange={onChange}
-                                name='name'
-                            />
-                        </div>
 
-                        <div className="form-group rale fw-bold">
-                            <label htmlFor="email_field">Email</label>
-                            <input
-                                type="email"
-                                id="email_field"
-                                className="form-control addRadius"
-                                value={email}
-                                onChange={onChange}
-                                name='email'
-                            />
-                        </div>
 
-                        <div className="form-group rale fw-bold">
-                            <label htmlFor="password_field">Password</label>
-                            <input
-                                type="password"
-                                id="password_field"
-                                className="form-control addRadius"
-                                value={password}
-                                onChange={onChange}
-                                name='password'
-                            />
-                        </div>
+            <div className="container container-fluid text-white" >
+                <div className="row wrapper">
+                    <div className="col-10 col-lg-5">
+                        <form className="shadow-lg fw-normal addRadius formBackground" onSubmit={onSubmit}>
+                            <h2 className="mb-3 fw-light rale text-white">Create a new account <BiUserPlus className='mb-2' /></h2>
 
-                        <div className='form-group rale fw-bold'>
-                            <label htmlFor='avatar_upload'>Avatar</label>
-                            <div className='d-flex align-items-center'>
-                                <div>
-                                    <figure className='avatar mr-3 item-rtl'>
-                                        <img
-                                            src={avatarPreview}
-                                            className='rounded-circle'
-                                            alt='image'
+                            <div className="form-group rale fw-bold">
+                                <label htmlFor="name_field">Full Name</label>
+                                <input
+                                    type="text"
+                                    id="name_field"
+                                    className="form-control addRadius formBackground"
+                                    value={name}
+                                    onChange={onChange}
+                                    name='name'
+                                />
+                            </div>
+
+                            <div className="form-group rale fw-bold">
+                                <label htmlFor="email_field">Email</label>
+                                <input
+                                    type="email"
+                                    id="email_field"
+                                    className="form-control addRadius"
+                                    value={email}
+                                    onChange={onChange}
+                                    name='email'
+                                />
+                            </div>
+
+                            <div className="form-group rale fw-bold passwordInput">
+                                <label htmlFor="password_field">Password</label>
+                                <input
+                                    type={visible ? 'text' : 'password'}
+                                    id="password_field"
+                                    className="form-control  addRadius"
+                                    value={password}
+                                    onChange={onChange}
+                                    name='password'
+                                />
+                                {
+                                    visible ?
+                                        <MotionInvisible
+                                            onClick={() => toggleVisibility()} className='passwordIcon'
                                         />
-                                    </figure>
-                                </div>
-                                <div>
-                                    <input
-                                        type='file'
-                                        name='avatar'
-                                        className='custom-fileee-input'
-                                        id='customFile'
-                                        accept='images/*'
-                                        onChange={onChange}
-                                    />
+                                        :
+                                        <MotionVisible
+                                            onClick={() => toggleVisibility()} className='passwordIcon'
 
+                                        />
+
+                                }
+                            </div>
+
+                            <div className='form-group rale fw-bold'>
+                                <label htmlFor='avatar_upload'>Avatar</label>
+                                <div className='d-flex align-items-center'>
+                                    <div>
+                                        <figure className='avatar mr-3 item-rtl'>
+                                            <img
+                                                src={avatarPreview}
+                                                className='rounded-circle'
+                                                alt='image'
+                                            />
+                                        </figure>
+                                    </div>
+                                    <div>
+                                        <input
+                                            type='file'
+                                            name='avatar'
+                                            className='custom-fileee-input w-100'
+                                            id='customFile'
+                                            accept='images/*'
+                                            onChange={onChange}
+                                        />
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
 
-                        <button
-                            id="login_button"
-                            type="submit"
-                            className="btn btn-block py-3 rale"
-                            disabled={loading || !email || !password || !name || !avatar ? true : false}
-                        >
-                            {
-                                loading ? <ButtonLoader /> : 'Register'
-                            }
-                        </button>
+                            <button
+                                id="login_button"
+                                type="submit"
+                                className="btn btn-block py-3 rale"
+                                disabled={loading || !email || !password || !name ? true : false}
+                            >
+                                {
+                                    loading ? <ButtonLoader /> : 'Register'
+                                }
+                            </button>
+                        </form>
                         <Link href="/login"><a className="float-left mt-2 fw-bold text-black rale">Already have an account? Sign in</a></Link>
-                    </form>
 
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
+
+
     )
 }
 

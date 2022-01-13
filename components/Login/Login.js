@@ -4,9 +4,17 @@ import { signIn } from 'next-auth/react'
 import ButtonLoader from '../ButtonLoader';
 import Link from 'next/link'
 import { IoIosLogIn } from 'react-icons/io'
-
+import { notification} from 'antd'
 
 const Login = () => {
+    useEffect(() => {
+        notification.info({
+            duration: 0,
+            className: 'addRadiusCarousel',
+            message: "Login in as admin",
+            description: "Login in as admin to create, read, update and delete room, users, bookings etc. Use these logins to login as an admin. || Email: admin@gmail.com || Password: kumordzie"
+        })
+    },[])
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
@@ -29,11 +37,11 @@ const Login = () => {
     }
   
     return (
-        <div className="container container-fluid">
+        <div className="container container-fluid text-white">
             <div className="row wrapper">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg addRadius fw-normal formBackground" onSubmit={onSubmit}>
-                        <h1 className="mb-3 fw-light rale">Login  <IoIosLogIn /> </h1> 
+                        <h1 className="mb-3 fw-light rale text-white">Login  <IoIosLogIn /> </h1> 
                         <div className="form-group rale fw-bold">
                             <label htmlFor="email_field">Email</label>
                             <input

@@ -10,16 +10,19 @@ import { DownOutlined } from '@ant-design/icons';
 import { useSession } from 'next-auth/react'
 import { Badge } from 'antd';
 import { motion } from 'framer-motion'
+import { IoIosLogIn } from 'react-icons/io'
+
 
 
 
 const Header = () => {
-    const { SubMenu } = Menu;
+    const MotionDropdown = motion(Dropdown)
+
     const { data: session, status } = useSession();
     const dispatch = useDispatch()
     const { user, loading } = useSelector(state => state.currentUser)
     useEffect(() => {
-        dispatch(getUser())
+        dispatch(getUser());
     }, [dispatch])
     const menu = (
         <Menu className="addRadius p-2 dropdownBackground mr-4">
@@ -82,14 +85,14 @@ const Header = () => {
         </Menu>
     )
     return (
-        <nav className="navbar row justify-content-center sticky-top position-relative">
+        <nav className="navbar row justify-content-center sticky-top customNav">
             <div className="container">
                 <div className="col-3 p-0">
-                    <div className="navbar-brand h-2" style={{ cursor: 'pointer', position: 'relative', right: '2rem' }}>
+                    <div className="navbar-brand" style={{ cursor: 'pointer', position: 'relative'}}>
                         <Link href='/' passHref>
                             <motion.img
-                                animate={{x:[-55, 2], }}
-                                transition= {{type: 'spring', bounce:0.99, duration: .8,}}
+                                animate={{ x: [-77, 0], }}
+                                transition={{ ease: [.6, .01, -.06, .95], duration: .8 }}
                                 src="/images/head.png"
                                 alt="Luxury-Spot"
                                 width={250}
@@ -105,8 +108,11 @@ const Header = () => {
                     {
                         !!user || !!session?.user ? (
                             <>
-                                <Dropdown overlay={menu} trigger={['click']} className='ant-dropdown-position'  >
-                                    <div className='d-flex '>
+                                <MotionDropdown
+                                    animate={{opacity: [0, 1], x:[-22, 0]}}
+                                    overlay={menu} trigger={['click']} className='ant-dropdown-position'
+                                >
+                                    <div className='d-flex'>
                                         <a className='d-flex '>
                                             <Badge dot color='green' />
 
@@ -122,20 +128,20 @@ const Header = () => {
 
                                         </a>
                                     </div>
-                                </Dropdown>
+                                </MotionDropdown>
                             </>
 
-                        ) : !loading && (
+                        ) : loading === false ? (
                             <Link href='/login'>
-                                <a className="btn btn-danger px-4 text-white login-header-btn float-right rale addRadius">Login</a>
+                                <a className="btn btn-danger login-header-btn float-right rale addRadius">Sign Up or Login<IoIosLogIn /></a>
                             </Link>
-                        )
+                        ) : null
 
                     }
 
                 </div>
             </div>
-        </nav >
+        </nav>
 
     )
 }

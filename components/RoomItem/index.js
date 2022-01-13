@@ -3,12 +3,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Rate } from 'antd';
 import { MdNightlightRound } from 'react-icons/md'
-import {motion} from 'framer-motion'
-
+import { motion } from 'framer-motion'
+import ReactCarousel from '../ReactCarousel/index'
 const container = {
     show: {
         transition: {
-            staggerChildren: .6
+            staggerChildren: .8
         }
 
     }
@@ -18,43 +18,43 @@ const showItem = {
         opacity: 1,
         scale: 1,
         transition: {
-            type: 'linear',
-            duration: .65
+            ease: [.6, .01, -.05, .95],
+            duration: 1.5
         }
     },
     hidden: {
         opacity: 0,
-        scale: 1.5
+        scale: 1.2
 
     }
 
 }
 
-const RoomItem = ({ room }) => {
+const RoomItem = ({ room, roo }) => {
     const { images, _id, name, pricePerNight, ratings, numOfReviews } = room
     return (
         <motion.div variants={container} className="col-sm-12 col-md-6 col-lg-3 my-3 " initial='hidden' animate='show'>
             <motion.div variants={showItem} className="card p-2 addRadius shadow-sm ">
                 <Link href={`/room/${_id}`}>
-                    <Image
-                        className="card-img-top mx-auto imageHover"
-                        height={170}
-                        width={100}
-                        src={images[0].url}
-                        alt={name}
-                        priority={true}
-                    />
+                    <div className="card-img-top mx-auto imageHover addRadiusCarousel">
+                        <ReactCarousel
+                            images={images}
+                            name={name}
+                            priority={true}
+                            roomItem
+                        />
+                    </div>
                 </Link>
 
                 <div className="card-body d-flex flex-column">
-                    <h5 className="card-title  fw-normal">
+                    <h5 className="card-title  rale fw-bold">
                         <Link href={`/room/${_id}`}>
                             <a>{name}</a>
                         </Link>
                     </h5>
 
                     <div className="ratings mt-auto mb-3">
-                        <p className="card-text "><b>GHS {pricePerNight} </b> / night <MdNightlightRound /></p>
+                        <p className="card-text rale fw-bold">GHS {pricePerNight} / night <MdNightlightRound /></p>
 
                         <div className="rating-outer">
                             <div className="rating-inner"
@@ -66,7 +66,7 @@ const RoomItem = ({ room }) => {
                         <span id="no_of_reviews">({numOfReviews} Reviews)</span>
                     </div>
 
-                    <button className="btn btn-block view-btn">
+                    <button className="btn btn-block view-btn add">
                         <Link href={`/room/${_id}`}>
                             <a>View Details</a>
                         </Link>

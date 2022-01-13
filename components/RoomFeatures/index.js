@@ -43,6 +43,7 @@ const hrVariant = {
 
 
 
+
 const RoomFeatures = ({ room }) => {
     const { ref, inView } = useInView();
     const controls = useAnimation();

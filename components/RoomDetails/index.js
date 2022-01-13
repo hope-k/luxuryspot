@@ -19,6 +19,7 @@ import ListReviews from '../ListReviews';
 import { Alert } from 'antd';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { AnimateSharedLayout } from "framer-motion"
 
 
 const container = {
@@ -44,6 +45,7 @@ const showItem = {
 }
 
 const RoomDetails = () => {
+    const PaystackButtonMotion = motion(PaystackButton)
     const { ref, inView } = useInView();
     const controls = useAnimation();
     const router = useRouter()
@@ -62,7 +64,7 @@ const RoomDetails = () => {
         if (inView) {
             controls.start('show')
         }
-        if(!inView) {
+        if (!inView) {
             controls.start('hidden')
         }
     }, [inView, controls])
@@ -173,7 +175,7 @@ const RoomDetails = () => {
             </Head>
             <div>
                 <div className="container container-fluid">
-                    <motion.h2 animate={{y: [10, 0],opacity: [0, 1] ,transition: {type: 'linear', duration: 1}}} className='mt-5 rale fw-bold'>{name}</motion.h2>
+                    <motion.h2 animate={{ y: [10, 0], opacity: [0, 1], transition: { type: 'linear', duration: 1 } }} className='mt-5 rale fw-bold'>{name}</motion.h2>
                     <motion.p animate={{ y: [10, 0], opacity: [0, 1], transition: { type: 'linear', duration: 1, delay: .5 } }}>{address}</motion.p>
                     <div className="ratings mt-auto mb-3">
                         <div className="rating-outer">
@@ -202,48 +204,58 @@ const RoomDetails = () => {
                             <RoomFeatures room={room} />
                         </motion.div>
                         <div className="col-12 col-md-6 col-lg-4">
-                            <div className="booking-card shadow-lg p-4">
-                                <p className='price-per-night'><b className='fw-normal'>GHS {pricePerNight}</b> / <span className='fw-light'>night</span></p>
-                                <hr />
-                                <h4 className="mt-5 mb-3 fw-light">
-                                    Pick <span className='text-deep-blue fw-normal'>Check In</span>  & <span className='text-info fw-normal'>Check Out</span> Date
-                                </h4>
-                                <DatePicker
-                                    className='w-100'
-                                    selected={checkInDate}
-                                    onChange={onChange}
-                                    startDate={checkInDate}
-                                    endDate={checkOutDate}
-                                    minDate={new Date()}
-                                    excludeDates={alreadyBookedDates}
-                                    selectsRange
-                                    inline
+                            <AnimateSharedLayout>
+                                <motion.div layout className="booking-card shadow-lg p-4">
+                                    <p className='price-per-night'><b className='fw-normal'>GHS {pricePerNight}</b> / <span className='fw-light'>night</span></p>
+                                    <hr />
+                                    <h4 className="mt-5 mb-3 fw-light">
+                                        Pick <span className='text-deep-blue fw-normal'>Check In</span>  & <span className='text-info fw-normal'>Check Out</span> Date
+                                    </h4>
+                                    <DatePicker
+                                        className='w-100'
+                                        selected={checkInDate}
+                                        onChange={onChange}
+                                        startDate={checkInDate}
+                                        endDate={checkOutDate}
+                                        minDate={new Date()}
+                                        excludeDates={alreadyBookedDates}
+                                        selectsRange
+                                        inline
 
-                                />
-                                {
-                                    isAvailable === true && <motion.div animate={{y: [-11, 0], opacity: [0, 1], transition: {type: 'spring', duration: .3}}} className="alert alert-success my-3 addRadius rale fw-bold">
-                                        Room is Available. Book now!.
-                                    </motion.div>
-                                }
-                                {
-                                    isAvailable === 'Not Available' && <motion.div animate={{ y: [-11, 0], opacity: [0, 1], transition: { type: 'spring', duration: .3 } }} className="alert alert-danger my-3 fw-normal addRadius">
-                                        Room not Available. Try different Date.
-                                    </motion.div>
-                                }
-                                {
-                                    isAvailable === true && !user &&
-                                    <motion.div animate={{ y: [-11, 0], opacity: [0, 1], transition: { type: 'spring', duration: .3 } }} className="alert alert-danger my-3 fw-normal addRadius">
-                                        Login to book room
-                                    </motion.div>
-                                }
-                                {
-                                    isAvailable === true && user &&
-                                    <PaystackButton {...paystackConfig} className="btn btn-block py-3 booking-btn " onClick={() => newBookingHandler()}>Pay - GHS {daysOfStay * pricePerNight} - {daysOfStay} Day(s)</PaystackButton>
+                                    />
+                                    {
+                                        isAvailable === true &&
+                                        <motion.div animate={{ y: [-11, 0], opacity: [0, 1] }} transition={{ ease: [.6, .01, -.05, .95], duration: 1 }} className="alert alert-success my-3 addRadius rale fw-bold">
+                                            Room is Available. Book now!.
+                                        </motion.div>
+                                    }
+                                    {
+                                        isAvailable === 'Not Available' && <motion.div animate={{ y: [-11, 0], opacity: [0, 1] }} transition={{ ease: [.6, .01, -.05, .95], duration: 1 }} className="alert alert-danger my-3 fw-normal addRadius">
+                                            Room not Available. Try different Date.
+                                        </motion.div>
+                                    }
+                                    {
+                                        isAvailable === true && !user &&
+                                        <motion.div animate={{ y: [-11, 0], opacity: [0, 1] }} transition={{ ease: [.6, .01, -.05, .95], duration: 1 }} className="alert alert-danger my-3 fw-normal addRadius">
+                                            Login to book room
+                                        </motion.div>
+                                    }
+                                    {
+                                        isAvailable === true && user &&
+                                        <PaystackButtonMotion
+                                            animate={{ y: [22, 0], opacity: [0, 1] }}
+                                            transition={{ ease: [.6, .01, -.05, .95], duration: 1.8 }}
+                                            {...paystackConfig}
+                                            className="btn btn-block py-3 booking-btn " onClick={() => newBookingHandler()}
+                                        >Pay - GHS {daysOfStay * pricePerNight} - {daysOfStay} Day(s)
 
-                                }
+                                        </PaystackButtonMotion>
+
+                                    }
 
 
-                            </div>
+                                </motion.div>
+                            </AnimateSharedLayout>
                         </div>
                     </div>
 

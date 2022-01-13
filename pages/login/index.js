@@ -1,13 +1,18 @@
 import React from 'react'
 import Login from '../../components/Login/Login'
 import Layout from '../../components/Layout';
-import { getSession} from 'next-auth/react'
+import { getSession } from 'next-auth/react'
 
 export default function LoginPage() {
     return (
-        <Layout title='Sign In'>
-            <Login />
-        </Layout>
+        <>
+            <div className="gradientBackground"></div>
+
+
+            <Layout title='Sign In'>
+                <Login />
+            </Layout>
+        </>
     )
 }
 export async function getServerSideProps({ req }) {
@@ -22,7 +27,7 @@ export async function getServerSideProps({ req }) {
         }
     }
     return {
-        props: {session}
+        props: { session }
     }
 }
 
