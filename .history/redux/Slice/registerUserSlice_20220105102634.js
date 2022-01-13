@@ -10,7 +10,7 @@ export const registerUser = createAsyncThunk('user/registerUser', async (userDat
                 'Content-Type': 'application/json'
             }
         }
-        const { data } = await axios.post(`/api/auth/register`, userData, config);
+        const { data } = await axios.post(`${NEXT_URL}/api/auth/register`, userData, config);
         return data
         
 

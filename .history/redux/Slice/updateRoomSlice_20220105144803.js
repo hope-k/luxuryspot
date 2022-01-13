@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { NEXT_URL } from '../../config/config'
 
-export const createNewReview = createAsyncThunk('newReviews/createNewReview', async (reviewData) => {
+export const updateRoom = createAsyncThunk('updateRoom/updateRoom', async ({ updateData, id }) => {
+    console.log('============UPDATE DATA', updateData)
 
     try {
         const config = {
@@ -10,7 +11,8 @@ export const createNewReview = createAsyncThunk('newReviews/createNewReview', as
                 'Content-Type': 'application/json'
             }
         }
-        const { data } = await axios.put(`/api/reviews`, reviewData, config);
+        const { data } = await axios.put(`${NEXT_URL}/api/rooms/${id}`, updateData, config);
+
         return data
     } catch (err) {
         return err.response.data.message
@@ -24,33 +26,33 @@ export const createNewReview = createAsyncThunk('newReviews/createNewReview', as
 const initialState = {
     success: null,
     error: null,
-    loading: true
+    loading: false
 }
 
-export const newReviewSlice = createSlice({
-    name: 'newReviews',
+export const updateRoomSlice = createSlice({
+    name: 'updateRoom',
     initialState: initialState,
     reducers: {
-        clearNewReviewsError: (state) => {
+        clearUpdateRoomError: (state) => {
             state.error = null
         },
-        resetNewReviews: (state) => {
-            state.success = false
+        resetUpdateRoom: (state) => {
+            state.success = null
         }
 
 
     },
     extraReducers: {
-        [createNewReview.fulfilled]: (state, action) => {
+        [updateRoom.fulfilled]: (state, action) => {
             state.success = action.payload?.success ? action.payload.success : null
             state.error = action.payload?.error ? action.payload.error : null
             state.loading = false
 
-        },        
-        [createNewReview.pending]: (state, action) => {
+        },
+        [updateRoom.pending]: (state, action) => {
             state.loading = true
         },
-        [createNewReview.rejected]: (state, action) => {
+        [updateRoom.rejected]: (state, action) => {
             state.error = action.payload
             state.loading = false
 
@@ -58,5 +60,5 @@ export const newReviewSlice = createSlice({
 
     }
 })
-export const { clearNewReviewsError, resetNewReviews } = newReviewSlice.actions
-export default newReviewSlice.reducer
+export const { clearUpdateRoomError, resetUpdateRoom } = updateRoomSlice.actions
+export default updateRoomSlice.reducer

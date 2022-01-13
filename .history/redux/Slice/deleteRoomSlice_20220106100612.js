@@ -10,7 +10,7 @@ export const deleteRoom = createAsyncThunk('deleteRoom/deleteRoom', async (id) =
     try {
       
 
-        const { data } = await axios.delete(`/api/rooms/${id}`);
+        const { data } = await axios.delete(`${NEXT_URL}/api/rooms/${id}`);
         return data
 
     } catch (err) {

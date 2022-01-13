@@ -3,8 +3,8 @@ import axios from 'axios'
 import { NEXT_URL } from '../../config/config';
 //thunk action to get all rooms
 //Next url is localhost:3000 || the env host process.env.NEXT_PUBLIC_URL
-export const getUser = createAsyncThunk('user/getUser', async () => {
-    const { data } = await axios.get(`/api/me`);
+export const getUserDetails = createAsyncThunk('getUserDetails/getUserDetailsSlice', async (id) => {
+    const { data } = await axios.get(`${NEXT_URL}/api/admin/users/${id}`);
     return data;
 })
 
@@ -13,32 +13,31 @@ export const getUser = createAsyncThunk('user/getUser', async () => {
 
 const initialState = {
     loading: true,
-    user: null,
+    user: {},
     error: null,
     success: null,
-    isAuthenticated: false 
+
 }
 
-export const userSlice = createSlice({
-    name: 'user',
+export const getUserDetailsSlice = createSlice({
+    name: 'userDetailsSlice',
     initialState: initialState,
     reducers: {
-        clearUserError: (state) => {
+        clearUserDetailsError: (state) => {
             state.error = null
         }
     },
     extraReducers: {
-        [getUser.fulfilled]: (state, action) => {
-            state.isAuthenticated = true
+        [getUserDetails.fulfilled]: (state, action) => {
             state.loading = false
             state.error = action.payload?.error ? action.payload.error : null
             state.success = action.payload?.success ? action.payload.success : null
-            state.user = action.payload?.user ? action.payload.user : null //checking to see if user object exists in the response before setting the state 
+            state.user = action.payload?.user ? action.payload.user : {} //checking to see if user object exists in the response before setting the state 
         },
-        [getUser.pending]: (state, action) => {
+        [getUserDetails.pending]: (state, action) => {
             state.loading = true
         },
-        [getUser.rejected]: (state) => {
+        [getUserDetails.rejected]: (state) => {
             state.loading = false
         }
 
@@ -46,5 +45,5 @@ export const userSlice = createSlice({
 
     }
 })
-export const { clearUserError } = userSlice.actions
-export default userSlice.reducer
+export const { clearUserDetailsError } = getUserDetailsSlice.actions
+export default getUserDetailsSlice.reducer

@@ -9,8 +9,10 @@ export const createAdminRoom = createAsyncThunk('room/getRoom', async (roomData)
                 'Content-Type': 'application/json'
             }
         }
-        const { data } = await axios.post(`/api/rooms/newRooms`, roomData, config);
-
+        const { data } = await axios.post(`${NEXT_URL}/api/rooms/newRooms`, roomData, config);
+        console.log('====================================');
+        console.log(data);
+        console.log('====================================');
         return data
     } catch (err) {
         return (err.response.data.message)

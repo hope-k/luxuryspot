@@ -8,8 +8,11 @@ const config = {
         'Content-Type': 'application/json'
     }
 }
-export const updateUser = createAsyncThunk('updateUser/getUpdateUser', async (updateUserObj) => {
-    const { data } = await axios.put(`/api/me/update`, updateUserObj, config);
+export const resetPassword = createAsyncThunk('reset/resetPassword', async (resetPasswordObj) => {
+    const { token } = resetPasswordObj
+    const { passwords } = resetPasswordObj
+    console.log('REDUX DATA', resetPasswordObj)
+    const { data } = await axios.put(`$/api/password/reset/${token}`, passwords, config);
     return data;
 })
 
@@ -22,27 +25,27 @@ const initialState = {
     success: null,
 }
 
-export const updateUserSlice = createSlice({
-    name: 'updateUser',
+export const resetPasswordSlice = createSlice({
+    name: 'resetPassword',
     initialState: initialState,
     reducers: {
-        clearUpdateUserError: (state) => {
+        clearResetPasswordError: (state) => {
             state.error = null
         },
-        resetUpdateUser: (state) => {
+        clearResetSuccess: (state) => {
             state.success = null
         }
     },
     extraReducers: {
-        [updateUser.fulfilled]: (state, action) => {
+        [resetPassword.fulfilled]: (state, action) => {
             state.loading = false
             state.error = action.payload?.error ? action.payload.error : null
             state.success = action.payload?.message ? action.payload.message : null
         },
-        [updateUser.pending]: (state, action) => {
+        [resetPassword.pending]: (state, action) => {
             state.loading = true
         },
-        [updateUser.rejected]: (state) => {
+        [resetPassword.rejected]: (state) => {
             state.loading = false
         }
 
@@ -50,5 +53,5 @@ export const updateUserSlice = createSlice({
 
     }
 })
-export const { clearUpdateUserError, resetUpdateUser } = updateUserSlice.actions
-export default updateUserSlice.reducer
+export const { clearResetPasswordError, clearResetSuccess } = resetPasswordSlice.actions
+export default resetPasswordSlice.reducer

@@ -12,7 +12,7 @@ export const getMyBookingsDetail = createAsyncThunk('myBookingsDetail/getMyBooki
         }
     }
     try {
-        const { data } = await axios.get(`/api/bookings/${id}`, config);
+        const { data } = await axios.get(`${NEXT_URL}/api/bookings/${id}`, config);
         return data
 
     } catch (err) {

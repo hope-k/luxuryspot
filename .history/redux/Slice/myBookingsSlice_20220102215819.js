@@ -14,7 +14,7 @@ export const getMyBookings = createAsyncThunk('myBookings/getMyBookings', async 
             }
         }
 
-        const { data } = await axios.get(`/api/bookings/me`, config);
+        const { data } = await axios.get(`${NEXT_URL}/api/bookings/me`, config);
         return data
 
     } catch (err) {

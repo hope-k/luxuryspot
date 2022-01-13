@@ -1,16 +1,17 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { NEXT_URL } from '../../config/config';
-//thunk action to get all rooms
+//thunk action to get all Bookings
 
 
 
-export const deleteRoom = createAsyncThunk('deleteRoom/deleteRoom', async (id) => {
+export const deleteBooking = createAsyncThunk('deleteBooking/deleteBooking', async (id) => {
+
 
     try {
-      
 
-        const { data } = await axios.delete(`/api/rooms/${id}`);
+
+        const { data } = await axios.delete(`${NEXT_URL}/api/admin/bookings/${id}`);
         return data
 
     } catch (err) {
@@ -29,14 +30,14 @@ const initialState = {
 
 }
 
-export const deleteRoomSlice = createSlice({
-    name: 'removeRoom',
+export const deleteBookingSlice = createSlice({
+    name: 'removeBooking',
     initialState: initialState,
     reducers: {
-        clearDeleteRoomError: (state) => {
+        clearDeleteBookingError: (state) => {
             state.error = null
-        },        
-        resetDeleteRoom: (state) => {
+        },
+        resetDeleteBooking: (state) => {
             state.success = null
         },
 
@@ -44,15 +45,15 @@ export const deleteRoomSlice = createSlice({
 
     },
     extraReducers: {
-        [deleteRoom.fulfilled]: (state, action) => {
+        [deleteBooking.fulfilled]: (state, action) => {
             state.loading = false
             state.error = action.payload?.error ? action.payload.error : null
             state.success = action.payload?.success ? action.payload.success : null
         },
-        [deleteRoom.pending]: (state, action) => {
+        [deleteBooking.pending]: (state, action) => {
             state.loading = true
         },
-        [deleteRoom.rejected]: (state) => {
+        [deleteBooking.rejected]: (state) => {
             state.loading = false
         }
 
@@ -60,5 +61,5 @@ export const deleteRoomSlice = createSlice({
 
     }
 })
-export const { clearDeleteRoomError, resetDeleteRoom } = deleteRoomSlice.actions
-export default deleteRoomSlice.reducer
+export const { clearDeleteBookingError, resetDeleteBooking } = deleteBookingSlice.actions
+export default deleteBookingSlice.reducer

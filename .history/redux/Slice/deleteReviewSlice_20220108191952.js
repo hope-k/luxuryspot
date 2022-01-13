@@ -1,16 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { NEXT_URL } from '../../config/config';
-//thunk action to get all rooms
+
+//thunk action to get all Reviews
 
 
 
-export const deleteRoom = createAsyncThunk('deleteRoom/deleteRoom', async (id) => {
-
+export const deleteReview = createAsyncThunk('deleteReview/deleteReview', async ({id, roomId}) => {
     try {
-      
-
-        const { data } = await axios.delete(`/api/rooms/${id}`);
+        const { data } = await axios.delete(`${NEXT_URL}/api/reviews/?id=${id}&roomId=${roomId}`);
         return data
 
     } catch (err) {
@@ -29,14 +27,14 @@ const initialState = {
 
 }
 
-export const deleteRoomSlice = createSlice({
-    name: 'removeRoom',
+export const deleteReviewSlice = createSlice({
+    name: 'removeReview',
     initialState: initialState,
     reducers: {
-        clearDeleteRoomError: (state) => {
+        clearDeleteReviewError: (state) => {
             state.error = null
-        },        
-        resetDeleteRoom: (state) => {
+        },
+        resetDeleteReview: (state) => {
             state.success = null
         },
 
@@ -44,21 +42,20 @@ export const deleteRoomSlice = createSlice({
 
     },
     extraReducers: {
-        [deleteRoom.fulfilled]: (state, action) => {
+        [deleteReview.fulfilled]: (state, action) => {
             state.loading = false
             state.error = action.payload?.error ? action.payload.error : null
             state.success = action.payload?.success ? action.payload.success : null
         },
-        [deleteRoom.pending]: (state, action) => {
+        [deleteReview.pending]: (state, action) => {
             state.loading = true
         },
-        [deleteRoom.rejected]: (state) => {
+        [deleteReview.rejected]: (state) => {
             state.loading = false
         }
 
 
-
     }
 })
-export const { clearDeleteRoomError, resetDeleteRoom } = deleteRoomSlice.actions
-export default deleteRoomSlice.reducer
+export const { clearDeleteReviewError, resetDeleteReview } = deleteReviewSlice.actions
+export default deleteReviewSlice.reducer

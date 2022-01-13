@@ -10,7 +10,7 @@ const config = {
 }
 export const updateUserDetails = createAsyncThunk('updateUserDetails/updateUserDetailsSlice', async ({id, role}) => {
     console.log('=========ID', role)
-    const { data } = await axios.put(`/api/admin/users/${id}`, role, config);
+    const { data } = await axios.put(`${NEXT_URL}/api/admin/users/${id}`, role, config);
     return data;
 })
 

@@ -5,7 +5,7 @@ import { NEXT_URL } from '../../config/config'
 export const getRoomReviews = createAsyncThunk('allRoomReviews/getRoomReviews', async (id) => {
 
     try {
-        const { data } = await axios.get(`/api/reviews/?id=${id}`);
+        const { data } = await axios.get(`${NEXT_URL}/api/reviews/?id=${id}`);
         return data
     } catch (err) {
         return err.response.data.message

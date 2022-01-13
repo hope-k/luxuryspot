@@ -1,17 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { NEXT_URL } from '../../config/config';
-//thunk action to get all rooms
+//thunk action to delete user 
 
 
 
-export const deleteRoom = createAsyncThunk('deleteRoom/deleteRoom', async (id) => {
+export const deleteUser = createAsyncThunk('deleteUser/deleteUser', async (id) => {
 
     try {
-      
-
-        const { data } = await axios.delete(`/api/rooms/${id}`);
-        return data
+        const { data } = await axios.delete(`${NEXT_URL}/api/admin/users/${id}`);
+        return data;
 
     } catch (err) {
         return err.message
@@ -29,14 +27,14 @@ const initialState = {
 
 }
 
-export const deleteRoomSlice = createSlice({
-    name: 'removeRoom',
+export const deleteUserSlice = createSlice({
+    name: 'deleteUser',
     initialState: initialState,
     reducers: {
-        clearDeleteRoomError: (state) => {
+        clearDeleteUserError: (state) => {
             state.error = null
-        },        
-        resetDeleteRoom: (state) => {
+        },
+        resetDeleteUser: (state) => {
             state.success = null
         },
 
@@ -44,15 +42,15 @@ export const deleteRoomSlice = createSlice({
 
     },
     extraReducers: {
-        [deleteRoom.fulfilled]: (state, action) => {
+        [deleteUser.fulfilled]: (state, action) => {
             state.loading = false
             state.error = action.payload?.error ? action.payload.error : null
             state.success = action.payload?.success ? action.payload.success : null
         },
-        [deleteRoom.pending]: (state, action) => {
+        [deleteUser.pending]: (state, action) => {
             state.loading = true
         },
-        [deleteRoom.rejected]: (state) => {
+        [deleteUser.rejected]: (state) => {
             state.loading = false
         }
 
@@ -60,5 +58,5 @@ export const deleteRoomSlice = createSlice({
 
     }
 })
-export const { clearDeleteRoomError, resetDeleteRoom } = deleteRoomSlice.actions
-export default deleteRoomSlice.reducer
+export const { clearDeleteUserError, resetDeleteUser } = deleteUserSlice.actions
+export default deleteUserSlice.reducer

@@ -9,7 +9,7 @@ const config = {
     }
 }
 export const updateUser = createAsyncThunk('updateUser/getUpdateUser', async (updateUserObj) => {
-    const { data } = await axios.put(`/api/me/update`, updateUserObj, config);
+    const { data } = await axios.put(`${NEXT_URL}/api/me/update`, updateUserObj, config);
     return data;
 })
 

@@ -4,7 +4,7 @@ import { NEXT_URL } from '../../config/config';
 //thunk action to get all rooms
 //Next url is localhost:3000 || the env host process.env.NEXT_PUBLIC_URL
 export const getUser = createAsyncThunk('user/getUser', async () => {
-    const { data } = await axios.get(`/api/me`);
+    const { data } = await axios.get(`${NEXT_URL}/api/me`);
     return data;
 })
 

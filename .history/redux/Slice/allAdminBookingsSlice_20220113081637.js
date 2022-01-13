@@ -10,7 +10,7 @@ export const allAdminBookings = createAsyncThunk('allAdminBookings/allAdminBooki
     try {
  
 
-        const { data } = await axios.get(`/api/admin/bookings`);
+        const { data } = await axios.get(`${NEXT_URL}/api/admin/bookings`);
         return data
 
     } catch (err) {

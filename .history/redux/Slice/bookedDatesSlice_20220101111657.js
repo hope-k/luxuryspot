@@ -9,7 +9,7 @@ export const getBookedDates = createAsyncThunk('bookedDates/getBookedDates', asy
 
     try {
 
-        const { data } = await axios.get(`/api/bookings/getBookedDates/?roomId=${id}`);
+        const { data } = await axios.get(`${NEXT_URL}/api/bookings/getBookedDates/?roomId=${id}`);
         return data
 
     } catch (err) {

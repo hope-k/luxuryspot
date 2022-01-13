@@ -5,7 +5,7 @@ import { NEXT_URL } from '../../config/config'
 export const getallAdminUsers = createAsyncThunk('allUsers/getAllUsers', async () => {
 
     try {
-        const { data } = await axios.get(`/api/admin/users`);
+        const { data } = await axios.get(`${NEXT_URL}/api/admin/users`);
         return data
     } catch (err) {
         return err.response.data.message

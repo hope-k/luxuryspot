@@ -5,7 +5,7 @@ import { NEXT_URL } from '../../config/config'
 export const getallAdminRooms = createAsyncThunk('allRooms/getAllRooms', async () => {
 
     try {
-        const { data } = await axios.get(`/api/admin/rooms`);
+        const { data } = await axios.get(`${NEXT_URL}/api/admin/rooms`);
         return data
     } catch (err) {
         return err.response.data.message

@@ -10,7 +10,7 @@ export const createNewReview = createAsyncThunk('newReviews/createNewReview', as
                 'Content-Type': 'application/json'
             }
         }
-        const { data } = await axios.put(`/api/reviews`, reviewData, config);
+        const { data } = await axios.put(`${NEXT_URL}/api/reviews`, reviewData, config);
         return data
     } catch (err) {
         return err.response.data.message
