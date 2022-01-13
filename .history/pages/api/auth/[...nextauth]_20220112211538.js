@@ -8,14 +8,9 @@ import CredentialsProvider from 'next-auth/providers/credentials'
 
 export default NextAuth({
 
-    session: {
-        strategy: 'jwt',
-        maxAge: 15 * 24 * 60 * 60,
-
-
-    },
-    secret: 'MWpgryxBGo15xcgP1GUUy6l4F3n55HfQMF3',
-    
+    session: { 
+        strategy: 'jwt'
+     },
     providers: [
         CredentialsProvider({
             name: 'Sign in with email and password',
@@ -50,11 +45,11 @@ export default NextAuth({
         })
     ],
     callbacks: {
-        jwt: async ({ token, user }) => {
+        jwt: async ({token, user}) => {
             user && (token.user = user)
             return Promise.resolve(token)
         },
-        session: async ({ session, token }) => {
+        session: async ({session, token}) => {
             session.user = token.user
             return Promise.resolve(session)
         }
@@ -62,6 +57,5 @@ export default NextAuth({
     jwt: {
         secret: 'MWpgryxBGo15xcgP1GUUy6l4F3n55HfQMF3/WBphMuo=',
         maxAge: 15 * 24 * 60 * 60,
-
     }
 })

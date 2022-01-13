@@ -11,11 +11,8 @@ export default NextAuth({
     session: {
         strategy: 'jwt',
         maxAge: 15 * 24 * 60 * 60,
-
-
+        
     },
-    secret: 'MWpgryxBGo15xcgP1GUUy6l4F3n55HfQMF3',
-    
     providers: [
         CredentialsProvider({
             name: 'Sign in with email and password',
@@ -62,6 +59,5 @@ export default NextAuth({
     jwt: {
         secret: 'MWpgryxBGo15xcgP1GUUy6l4F3n55HfQMF3/WBphMuo=',
         maxAge: 15 * 24 * 60 * 60,
-
     }
 })

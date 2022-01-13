@@ -14,7 +14,6 @@ export default NextAuth({
 
 
     },
-    secret: 'MWpgryxBGo15xcgP1GUUy6l4F3n55HfQMF3',
     
     providers: [
         CredentialsProvider({
