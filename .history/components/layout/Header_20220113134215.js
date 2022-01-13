@@ -93,7 +93,7 @@ const Header = () => {
                     <div className="navbar-brand" style={{ cursor: 'pointer', position: 'relative', marginLeft: '-.5rem' }}>
                         <Link href='/' passHref>
                             <motion.img
-                                animate={{ opacity: [0, 1], }}
+                                animate={{ op: [-77, 0], }}
                                 transition={{ ease: [.6, .01, -.06, .95], duration: .8 }}
                                 src="/images/head.png"
                                 alt="Luxury-Spot"
