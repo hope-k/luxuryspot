@@ -14,7 +14,7 @@ export default function Index() {
     return (
         <>
             {
-                loaded ? (
+                loaded : (
                     <>
                         <div className="searchBackground"></div>
                         <Layout title='Search Rooms'>
