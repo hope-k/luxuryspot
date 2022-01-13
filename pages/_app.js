@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import { wrapper } from '../redux/store'
 import { SessionProvider } from 'next-auth/react'
 import { AnimatePresence } from 'framer-motion';
+import React, {useState, useEffect} from 'react';
 
 
 
