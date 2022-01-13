@@ -48,7 +48,7 @@ const Login = () => {
                                 id="email_field"
                                 className="form-control addRadius"
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)} 
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
 

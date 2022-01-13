@@ -3,7 +3,7 @@ module.exports = {
     experimental: {
         optimizeCss: true,
 
-    },
+    }
     reactStrictMode: false,
     env: {
         PAYSTACK_API_KEY: 'pk_test_8aa703663730fefa5b658cfd31503aa78cfc5f7a',
