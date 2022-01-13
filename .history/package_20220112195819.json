@@ -9,9 +9,8 @@
     "addRooms": "node backend/utils/seeder.js"
   },
   "dependencies": {
-    "@mui/material": "^5.2.8",
     "@mui/styles": "^5.2.3",
-    "@reduxjs/toolkit": "^1.7.1",
+    "@reduxjs/toolnpmkit": "^1.7.1",
     "antd": "^4.18.2",
     "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
