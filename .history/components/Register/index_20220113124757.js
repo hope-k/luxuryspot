@@ -8,7 +8,7 @@ import Link from 'next/link'
 import { BiUserPlus } from 'react-icons/bi'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import { motion } from 'framer-motion'
-import { FiLock } from 'react-icons/fi'
+import 
 
 
 const Register = () => {
@@ -113,7 +113,7 @@ const Register = () => {
                             </div>
 
                             <div className="form-group rale fw-bold passwordInput">
-                                <label htmlFor="password_field">Password <FiLock style={{marginBottom: '3px'}}/></label>
+                                <label htmlFor="password_field">Password</label>
                                 <input
                                     type={visible ? 'text' : 'password'}
                                     id="password_field"

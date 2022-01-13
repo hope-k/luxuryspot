@@ -113,7 +113,7 @@ const Register = () => {
                             </div>
 
                             <div className="form-group rale fw-bold passwordInput">
-                                <label htmlFor="password_field">Password <FiLock style={{marginBottom: '3px'}}/></label>
+                                <label htmlFor="password_field">Password <FiLock style={{marginBottom: ''}}/></label>
                                 <input
                                     type={visible ? 'text' : 'password'}
                                     id="password_field"

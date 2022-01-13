@@ -19,12 +19,12 @@ const showItem = {
         scale: 1,
         transition: {
             ease: [.6, .01, -.05, .95],
-            duration: .8
+            duration: .70
         }
     },
     hidden: {
         opacity: 0,
-        scale: 0.95
+        scale: 0.98
 
     }
 
