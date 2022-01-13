@@ -26,9 +26,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <SessionProvider session={session}>
-            {
-              loaded && <Component {...pageProps} />
-            }
+          {
+            <Component {...pageProps} />
+          }
           </SessionProvider>
         </ThemeProvider>
       </Provider>

@@ -13,12 +13,6 @@ import React, { useState, useEffect } from 'react'
 
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
-  const [loaded, setLoaded] = useState(false)
-  useEffect(() => {
-    if (document.readyState !== 'loading') {
-      setLoaded(true)
-    }
-  }, [])
   let theme = createTheme();
   theme = responsiveFontSizes(theme);
   return (
@@ -26,9 +20,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <SessionProvider session={session}>
-            {
-              loaded && <Component {...pageProps} />
-            }
+            <Component {...pageProps} />
           </SessionProvider>
         </ThemeProvider>
       </Provider>
