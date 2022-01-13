@@ -10,6 +10,6 @@ export const dbConnect = () => {
         useUnifiedTopology:true,
         useFindAndModify: false,
         useCreateIndex: true
-    });
+    }).then(() => console.log('Database Connected'));
 }
 

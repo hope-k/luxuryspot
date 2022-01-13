@@ -28,6 +28,7 @@ const Login = () => {
             redirect: false
         })
         setLoading(false)
+        console.log('RESULT', result)
         if (result.error) {
             toast.error(result.error, { theme: 'colored', style: { borderRadius: '2rem' }, });
         }else{

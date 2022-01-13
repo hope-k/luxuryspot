@@ -18,14 +18,20 @@ cloudinary.config({
 
 //Register user  => /api/auth/register
 const registerUser = asyncErrorHandler(async (req, res) => {
-    const result = await cloudinary.uploader.upload(req.body.avatar, {
-        folder: `bookit/avatars`,
-        width: '150',
-        crop: 'scale'
-
-    })
-    const { name, email, password } = req.body
     try {
+        const avatar = {};
+        if (req.body.avatar) {
+            const result = await cloudinary.uploader.upload(req.body.avatar, {
+                folder: `bookit/avatars`,
+                width: '150',
+                crop: 'scale'
+    
+            })
+            avatar.public_id = result.public_id
+            avatar.url = result.secure_url
+    
+        }
+        const { name, email, password } = req.body
         //always await async await events
         const getUser = await User.findOne({ email: email })
         if (getUser) {
@@ -36,10 +42,7 @@ const registerUser = asyncErrorHandler(async (req, res) => {
             name: name,
             email: email,
             password: password,
-            avatar: {
-                public_id: result.public_id,
-                url: result.secure_url
-            }
+            avatar: avatar
 
         })
 
@@ -167,7 +170,7 @@ const resetPassword = asyncErrorHandler(async (req, res) => {
         if (!user) {
             throw new Error('Password reset token is invalid or expired')
         }
-        if(req.body.password !== req.body.confirmPassword){
+        if (req.body.password !== req.body.confirmPassword) {
             throw new Error('Passwords do not match')
         }
         user.password = req.body.password
@@ -199,7 +202,7 @@ const allAdminUsers = asyncErrorHandler(async (req, res) => {
             users: users
         });
 
-    }catch(err){
+    } catch (err) {
         res.json({
             error: err.message
         })
@@ -212,7 +215,7 @@ const getUserDetails = asyncErrorHandler(async (req, res) => {
     //always await async await events
     try {
         const user = await User.findById(req.query.id);
-        if(!user){
+        if (!user) {
             throw new Error('User not found with this id')
         }
         res.status(200).json({
@@ -220,7 +223,7 @@ const getUserDetails = asyncErrorHandler(async (req, res) => {
             user: user
         });
 
-    }catch(err){
+    } catch (err) {
         res.json({
             error: err.message
         })
@@ -235,7 +238,7 @@ const updateUserDetails = asyncErrorHandler(async (req, res) => {
     try {
 
         const user = await User.findById(req.query.id);
-        if(!user){
+        if (!user) {
             throw new Error('User not found with this id')
         }
         user.role = req.body.role;
@@ -244,7 +247,7 @@ const updateUserDetails = asyncErrorHandler(async (req, res) => {
             success: true,
         });
 
-    }catch(err){
+    } catch (err) {
         res.json({
             error: err.message
         })
@@ -258,7 +261,7 @@ const deleteUser = asyncErrorHandler(async (req, res) => {
     //always await async await events
     try {
         const user = await User.findById(req.query.id);
-        if(!user){
+        if (!user) {
             throw new Error('User not found with this id')
         }
         //remove user avatar
@@ -271,7 +274,7 @@ const deleteUser = asyncErrorHandler(async (req, res) => {
             user: user
         });
 
-    }catch(err){
+    } catch (err) {
         res.json({
             error: err.message
         })

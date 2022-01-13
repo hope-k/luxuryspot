@@ -11,6 +11,8 @@ import { useSession } from 'next-auth/react'
 import { Badge } from 'antd';
 import { motion } from 'framer-motion'
 import { IoIosLogIn } from 'react-icons/io'
+import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 
 
 
@@ -88,7 +90,7 @@ const Header = () => {
         <nav className="navbar row justify-content-center sticky-top customNav">
             <div className="container">
                 <div className="col-3 p-0">
-                    <div className="navbar-brand" style={{ cursor: 'pointer', position: 'relative'}}>
+                    <div className="navbar-brand" style={{ cursor: 'pointer', position: 'relative', marginLeft: '-.5rem' }}>
                         <Link href='/' passHref>
                             <motion.img
                                 animate={{ x: [-77, 0], }}
@@ -109,19 +111,32 @@ const Header = () => {
                         !!user || !!session?.user ? (
                             <>
                                 <MotionDropdown
-                                    animate={{opacity: [0, 1], x:[-22, 0]}}
+                                    animate={{ opacity: [0, 1], x: [-22, 0] }}
                                     overlay={menu} trigger={['click']} className='ant-dropdown-position'
                                 >
                                     <div className='d-flex'>
                                         <a className='d-flex '>
                                             <Badge dot color='green' />
+                                            {
+                                                !session?.user?.avatar?.url || !user?.avatar?.url ?
+                                                    <Avatar
+                                                        style={{ backgroundColor: '#87d068', marginRight: '.8rem' }}
+                                                        icon={<UserOutlined />}
+                                                        size={{ xs: 35, sm: 35, md: 45, lg: 45, xl: 45 }}
 
-                                            <figure className="avatar-nav avatar ">
 
-                                                <img src={!user ? session?.user.avatar.url : user?.avatar.url}
-                                                    className='rounded-circle'
-                                                />
-                                            </figure>
+                                                    /> : (
+                                                        <figure className="avatar-nav avatar ">
+
+                                                            <img src={!user ? session?.user?.avatar?.url : user?.avatar?.url}
+                                                                className='rounded-circle'
+                                                            />
+                                                        </figure>
+                                                    )
+
+                                            }
+
+
 
                                             <span className='dropdown-text mt-1 rale fw-bold'>{!user ? session.user.name.split(" ")[0] : user?.name.split(" ")[0]}</span>
                                             <DownOutlined className='ml-1 mt-2' />
