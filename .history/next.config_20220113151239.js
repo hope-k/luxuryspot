@@ -13,8 +13,8 @@ module.exports = {
         SMTP_FROM_NAME: 'LuxuryApt',
         SMTP_FROM_EMAIL: 'noreply@luxuryapt.com',
         MONGO_URI: 'mongodb://hope21x:kumordzie@cluster0-shard-00-00.ufgdy.mongodb.net:27017,cluster0-shard-00-01.ufgdy.mongodb.net:27017,cluster0-shard-00-02.ufgdy.mongodb.net:27017/luxurySpot?ssl=true&replicaSet=atlas-j2ry9k-shard-0&authSource=admin&retryWrites=true&w=majority',
-        NEXTAUTH_URL:'luxuryspot.vercel.app',
-        NEXT_PUBLIC_URL: 'luxuryspot.vercel.app'
+        //NEXTAUTH_URL:'luxuryspot.vercel.app',
+        //NEXT_PUBLIC_URL: 'luxuryspot.vercel.app'
     },
     images: {
         domains: ['a0.muscache.com', 'res.cloudinary.com'],
