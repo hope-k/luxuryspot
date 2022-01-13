@@ -123,7 +123,7 @@ const Header = () => {
                                                 />
                                             </figure>
 
-                                            <span className='dropdown-text mt-1 rale fw-bold'>{!user ? session.user.name.split(" ")[0] : user?.name.split(" ")[0]}</span>
+                                            <span className='dropdown-text mt-1 rale fw-bold'>{!user ? session.user.name.split() : user?.name}</span>
                                             <DownOutlined className='ml-1 mt-2' />
 
                                         </a>
