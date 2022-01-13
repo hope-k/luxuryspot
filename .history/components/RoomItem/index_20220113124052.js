@@ -19,7 +19,7 @@ const showItem = {
         scale: 1,
         transition: {
             ease: [.6, .01, -.05, .95],
-            duration: .68
+            duration: 1.5
         }
     },
     hidden: {

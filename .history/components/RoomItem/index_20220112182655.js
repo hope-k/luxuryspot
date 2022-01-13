@@ -19,7 +19,7 @@ const showItem = {
         scale: 1,
         transition: {
             ease: [.6, .01, -.05, .95],
-            duration: .68
+            duration: 1.5
         }
     },
     hidden: {
@@ -30,7 +30,7 @@ const showItem = {
 
 }
 
-const RoomItem = ({ room}) => {
+const RoomItem = ({ room, roo }) => {
     const { images, _id, name, pricePerNight, ratings, numOfReviews } = room
     return (
         <motion.div variants={container} className="col-sm-12 col-md-6 col-lg-3 my-3 " initial='hidden' animate='show'>

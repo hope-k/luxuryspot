@@ -6,23 +6,19 @@ import { getSession } from 'next-auth/react'
 export default function LoginPage() {
     const [loaded, setLoaded] = useState(false)
     useEffect(() => {
-        if (document.readyState !== 'loading') {
+        if(document.readyState !== 'loading'){
             setLoaded(true)
         }
-    }, [])
+    },[])
     return (
         <>
-            {
-                loaded && (
-                    <>
-                        <div className="gradientBackground"></div>
-                        <Layout title='Sign In'>
-                            <Login />
-                        </Layout>
-                    </>
-
-                )
-            }
+        {
+            
+        }
+            <div className="gradientBackground"></div>
+            <Layout title='Sign In'>
+                <Login />
+            </Layout>
         </>
     )
 }

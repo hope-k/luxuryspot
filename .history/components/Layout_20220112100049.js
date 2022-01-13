@@ -10,7 +10,7 @@ import { motion } from 'framer-motion'
 
 
 const variants = {
-    hidden: { opacity: 0, scale: 1.05 },
+    hidden: { opacity: 0, scale: 1.09 },
     show: { opacity: 1, scale: 1 },
     exit: { opacity: 0, scale: 0 },
 }
@@ -25,7 +25,7 @@ const Layout = ({ children, title = 'Book Best Apartments' }) => {
                     initial='hidden'
                     animate='show'
                     exit='exit'
-                    transition={{ ease: [.6, .01, -.05, .95], duration: .65 }}
+                    transition={{ ease: [.6, .01, -.05, .95], duration: .8 }}
                 >
                     <Head>
                         <title>{title}</title>

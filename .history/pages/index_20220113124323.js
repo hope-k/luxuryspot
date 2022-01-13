@@ -14,15 +14,16 @@ export default function Index() {
   }, [])
   return (
     <>
-      {
-        loaded && (
-          <Layout>
-            <Home />
-          </Layout>
-
-        )
-      }
+      
     </>
+    {
+      loaded && (
+      <Layout>
+        <Home />
+      </Layout>
+
+    )
+    }
   )
 }
 

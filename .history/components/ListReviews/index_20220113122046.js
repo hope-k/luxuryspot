@@ -11,11 +11,8 @@ const container = {
     },
     show: {
         opacity: 1,
-        x: 0,
-        transition:{ ease: [.6, .01, -.05, .95], duration: 1, staggerChildren: .6 }
-
-    },
-
+        x: 0
+    }
 }
 const ListReviews = ({ reviews }) => {
     const listReviews = Array.from(reviews);
@@ -27,11 +24,11 @@ const ListReviews = ({ reviews }) => {
         if (inView) {
             controls.start('show')
         }
-        if (!inView) {
+        if(!inView){
             controls.start('hidden')
         }
 
-
+        
     })
 
 
@@ -54,7 +51,7 @@ const ListReviews = ({ reviews }) => {
                             </div>
                         </div>
                         {review?.createdAt &&
-                            <p className="review_user">Posted on  {moment(new Date(review.createdAt)).format('LLL')}</p>
+                            <p className="review_user">Posted on  { moment(new Date(review.createdAt)).format('LLL')}</p>
 
                         }
                         <p className="review_user">by {review.name}</p>

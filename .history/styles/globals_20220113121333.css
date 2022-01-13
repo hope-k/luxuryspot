@@ -720,7 +720,7 @@ input::placeholder {
 .registerContainer{
   position: relative;
   z-index: 10;
-  overflow: hidden;
+  overflow-x: hidden;
 
 }
 .customNav{

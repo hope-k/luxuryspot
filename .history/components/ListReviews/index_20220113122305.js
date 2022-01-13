@@ -27,9 +27,7 @@ const ListReviews = ({ reviews }) => {
         if (inView) {
             controls.start('show')
         }
-        if (!inView) {
-            controls.start('hidden')
-        }
+ 
 
 
     })

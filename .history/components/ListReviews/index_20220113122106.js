@@ -11,11 +11,11 @@ const container = {
     },
     show: {
         opacity: 1,
-        x: 0,
-        transition:{ ease: [.6, .01, -.05, .95], duration: 1, staggerChildren: .6 }
+        x: ,
+        transition: { ease: [.6, .01, -.05, .95], duration: 1, staggerChildren: .6 }
 
     },
-
+    
 }
 const ListReviews = ({ reviews }) => {
     const listReviews = Array.from(reviews);

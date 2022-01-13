@@ -25,7 +25,7 @@ const Layout = ({ children, title = 'Book Best Apartments' }) => {
                     initial='hidden'
                     animate='show'
                     exit='exit'
-                    transition={{ ease: [.6, .01, -.05, .95], duration: .65 }}
+                    transition={{ ease: [.6, .01, -.05, .95], duration: .8 }}
                 >
                     <Head>
                         <title>{title}</title>
