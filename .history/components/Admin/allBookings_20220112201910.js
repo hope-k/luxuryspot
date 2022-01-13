@@ -249,4 +249,4 @@ export const AllBookings = () => {
     )
 
 }
-export default AllBookings;
+export default AllAdminBookings;

@@ -1,13 +1,13 @@
 import React from 'react'
 import { getSession } from 'next-auth/react'
 import Layout from '../../../components/Layout';
-import UpdateUserDetails from '../../../components/Admin/UpdateUserDetails';
+import AllAdminBookings from '../../../components/Admin/allBookings';
 
 
-const UpdateUserPage = () => {
+const AllAdminBookingsPage = () => {
     return (
-        <Layout title='Update User Role'>
-            <UpdateUserDetails />
+        <Layout title='Admin All Bookings'>
+            <AllAdminBookings />
         </Layout>
     )
 }
@@ -26,4 +26,4 @@ export async function getServerSideProps({ req }) {
         props: {}
     }
 }
-export default UpdateUserPage;
+export default AllAdminBookingsPage

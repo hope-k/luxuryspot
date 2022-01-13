@@ -1,7 +1,7 @@
 import React from 'react'
 import { getSession } from 'next-auth/react'
 import Layout from '../../../components/Layout';
-import UpdateUserDetails from '../../../components/Admin/UpdateUserDetails';
+import UpdateUser from '../../../components/Admin/updateUserDetails';
 
 
 const UpdateUserPage = () => {

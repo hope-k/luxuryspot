@@ -12,7 +12,7 @@ import { deleteBooking, clearDeleteBookingError, resetDeleteBooking } from '../.
 import { useRouter } from 'next/router';
 import {toast} from 'react-toastify'
 
-export const AllBookings = () => {
+export const AllAdminBookings = () => {
     const router = useRouter()
     const dispatch = useDispatch();
     const { bookings, error, loading, success } = useSelector(state => state.allAdminBookings)
@@ -249,4 +249,4 @@ export const AllBookings = () => {
     )
 
 }
-export default AllBookings;
+export default AllAdminBookings;
