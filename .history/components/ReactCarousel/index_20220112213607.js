@@ -10,7 +10,7 @@ const ReactCarousel = ({ images, name, roomItem }) => {
             {
                 images && images.map(image => (
 
-                    <Carousel.Item key={image.public_id} style={{ transition: `${roomItem ? 'opacity 3s' : 'opacity .8s'}`, animationTimingFunction: 'cubic-bezier(-.6, .01, -.05, .95)' }}>
+                    <Carousel.Item key={image.public_id} style={{ transition: `${roomItem ? 'opacity 3s' : 'opacity .35s'}`, animationTimingFunction: 'cubic-bezier(-.6, .01, -.05, .95)' }}>
                         <div style={{ width: '100%', height: `${roomItem ? '340px' : '440px'}`, position: 'relative' }}>
                             <Image
                                 className='d-block m-10 rounded-3 addRadiusCarousel'
