@@ -682,7 +682,7 @@ input::placeholder {
 }
 .formBackground {
   background: rgba(36, 120, 189, 0.1);
-  border: 1px solid white;
+  border: .6px solid white;
 }
 .dropdownBackground {
   background: rgba(999,999,999,.9);

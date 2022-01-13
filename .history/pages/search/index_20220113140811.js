@@ -10,17 +10,16 @@ export default function Index() {
         if (document.readyState !== 'loading') {
             setLoaded(true)
         }
-    }, []);
+    }, [])
     return (
         <>
             {
                 loaded && (
-                    <>
-                        <div className="searchBackground"></div>
-                        <Layout title='Search Rooms'>
-                            <Search />
-                        </Layout>
-                    </>
+                    
+            <div className="searchBackground"></div>
+            <Layout title='Search Rooms'>
+                <Search />
+            </Layout>
 
                 )
             }

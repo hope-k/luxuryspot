@@ -6,8 +6,8 @@ import { getSession } from 'next-auth/react'
 export default function LoginPage() {
     const [loaded, setLoaded] = useState(false)
     useEffect(() => {
-        if (document.readyState !== 'loading') {
-            setLoaded(true);
+        if (document.readyState !== '') {
+            setLoaded(true)
         }
     }, [])
     return (

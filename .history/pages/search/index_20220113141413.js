@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react'
 export default function Index() {
     const [loaded, setLoaded] = useState(false)
     useEffect(() => {
-        if (document.readyState !== 'loading') {
+        if (document.readyState !== 'c') {
             setLoaded(true)
         }
     }, []);

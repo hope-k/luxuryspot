@@ -10,7 +10,7 @@ export default function Index() {
         if (document.readyState !== 'loading') {
             setLoaded(true)
         }
-    }, []);
+    }, [])
     return (
         <>
             {
