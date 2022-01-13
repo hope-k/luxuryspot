@@ -1,6 +1,5 @@
 import Search from "../../components/Search";
 import Layout from "../../components/Layout";
-import React, { useState, useEffect } from 'react'
 
 
 
