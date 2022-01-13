@@ -24,17 +24,15 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     <>
       {
         loaded &&
-        (
-          <AnimatePresence exitBeforeEnter>
-            <Provider store={store}>
-              <ThemeProvider theme={theme}>
-                <SessionProvider session={session}>
-                  <Component {...pageProps} />
-                </SessionProvider>
-              </ThemeProvider>
-            </Provider>
-          </AnimatePresence>
-        )
+        <AnimatePresence exitBeforeEnter>
+          <Provider store={store}>
+            <ThemeProvider theme={theme}>
+              <SessionProvider session={session}>
+                <Component {...pageProps} />
+              </SessionProvider>
+            </ThemeProvider>
+          </Provider>
+        </AnimatePresence>
       }
     </>
   )

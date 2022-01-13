@@ -22,21 +22,20 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   theme = responsiveFontSizes(theme);
   return (
     <>
-      {
-        loaded &&
-        (
-          <AnimatePresence exitBeforeEnter>
-            <Provider store={store}>
-              <ThemeProvider theme={theme}>
-                <SessionProvider session={session}>
-                  <Component {...pageProps} />
-                </SessionProvider>
-              </ThemeProvider>
-            </Provider>
-          </AnimatePresence>
-        )
-      }
+      
     </>
+    {
+      loaded &&
+    <AnimatePresence exitBeforeEnter>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <SessionProvider session={session}>
+            <Component {...pageProps} />
+          </SessionProvider>
+        </ThemeProvider>
+      </Provider>
+    </AnimatePresence>
+    }
   )
 }
 //wrap the app with redux
