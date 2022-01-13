@@ -9,7 +9,7 @@ export default function Index() {
   const [loaded, setLoaded] = useState(false)
   useEffect(() => {
     if (document.readyState !== 'loading') {
-      setLoaded(true);
+      setLoaded(true)
     }
   }, [])
   return (
@@ -20,7 +20,7 @@ export default function Index() {
             <Home />
           </Layout>
 
-        ) : ' '
+        ) : ''
       }
     </>
   )

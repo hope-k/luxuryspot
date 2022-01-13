@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Login from '../../components/Login/Login'
 import Layout from '../../components/Layout';
 import { getSession } from 'next-auth/react'
 
 export default function LoginPage() {
-    
+    useEffect(() => {
+        if(document.readyState !== 'loading'){
+            setLoaded(true)
+        }
+    },[])
     return (
         <>
             <div className="gradientBackground"></div>
