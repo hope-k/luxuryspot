@@ -8,14 +8,14 @@ import absoluteUrl from 'next-absolute-url'
 export const getMyBookings = createAsyncThunk('myBookings/getMyBookings', async ({cookie, req}) => {
 
     try {
-        const origin = absoluteUrl(req)
+        const api
         const config = {
             headers: {
                 cookie: cookie
             }
         }
 
-        const { data } = await axios.get(`${origin}/api/bookings/me`, config);
+        const { data } = await axios.get(`/api/bookings/me`, config);
         return data
 
     } catch (err) {

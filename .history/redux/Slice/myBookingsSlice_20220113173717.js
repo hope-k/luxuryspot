@@ -5,17 +5,16 @@ import absoluteUrl from 'next-absolute-url'
 
 
 
-export const getMyBookings = createAsyncThunk('myBookings/getMyBookings', async ({cookie, req}) => {
+export const getMyBookings = createAsyncThunk('myBookings/getMyBookings', async (authCookie) => {
 
     try {
-        const origin = absoluteUrl(req)
         const config = {
             headers: {
-                cookie: cookie
+                cookie: authCookie
             }
         }
 
-        const { data } = await axios.get(`${origin}/api/bookings/me`, config);
+        const { data } = await axios.get(`/api/bookings/me`, config);
         return data
 
     } catch (err) {
