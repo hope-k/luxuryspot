@@ -6,9 +6,7 @@ import {useState, useEffect} from 'react'
 
 export default function LoginPage() {
     const [loaded, setLoaded] = useState(false);
-    useEffect(() => {
-        setLoaded(true)
-    },[])
+    useEffect
 
     return (
         <>

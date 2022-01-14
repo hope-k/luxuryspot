@@ -6,21 +6,15 @@ import {useState, useEffect} from 'react'
 
 export default function LoginPage() {
     const [loaded, setLoaded] = useState(false);
-    useEffect(() => {
-        setLoaded(true)
-    },[])
 
     return (
         <>
             <div className="gradientBackground">
             </div>
-            {
-                loaded && 
-
+            
                 <Layout title='Sign In'>
                     <Login />
                 </Layout>
-            }
         </>
     )
 }
