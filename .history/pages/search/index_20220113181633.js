@@ -9,15 +9,15 @@ export default function Index() {
     useEffect(() => {
         setLoaded(true)
     }, [])
-
+    
     return (
         <>
             <div className="searchBackground"></div>
             {
-                loaded &&
-                <Layout title='Search Rooms'>
-                    <Search />
-                </Layout>
+                loaded && 
+            <Layout title='Search Rooms'>
+                <Search />
+            </Layout>
             }
         </>
     )

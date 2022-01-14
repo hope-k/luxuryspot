@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../../components/Layout';
 import Register from '../../components/Register';
 import { getSession } from 'next-auth/react';
-import { useState, useEffect } from 'react'
+import {useState}
 
 
 export default function RegisterPage() {
@@ -12,14 +12,10 @@ export default function RegisterPage() {
     }, [])
     return (
         <>
-
             <div className="gradientBackground"></div>
-            {
-                loaded &&
                 <Layout title='Sign Up'>
                     <Register />
                 </Layout>
-            }
 
 
         </>

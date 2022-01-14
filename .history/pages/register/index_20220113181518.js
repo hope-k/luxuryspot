@@ -15,11 +15,11 @@ export default function RegisterPage() {
 
             <div className="gradientBackground"></div>
             {
-                loaded &&
-                <Layout title='Sign Up'>
-                    <Register />
-                </Layout>
+                
             }
+            <Layout title='Sign Up'>
+                <Register />
+            </Layout>
 
 
         </>

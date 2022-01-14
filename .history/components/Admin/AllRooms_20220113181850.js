@@ -149,7 +149,7 @@ const AllRooms = () => {
                             <h1 className='my-5 fw-bold rale'>{`${rooms && rooms.length} Rooms`}
 
                                 <Link href='/admin/rooms/new' passHref>
-                                    <a className="mt-0 btn text-white float-right new-room-btn fw-normal">
+                                    <a href="" className="mt-0 btn text-white float-right new-room-btn fw-normal">
                                         Create Room <BsPlusCircleDotted className='mb-1' />
                                     </a>
                                 </Link>
