@@ -116,7 +116,7 @@ const RoomDetails = () => {
                     'Content-Type': 'application/json'
                 }
             }
-            const { data } = await axios.post(`/api/bookings`, bookingData, config)
+            const { data } = await axios.post(`${NEXT_URL}/api/bookings`, bookingData, config)
             if (data.error) {
                 setBookingError(data.error)
             }
@@ -157,6 +157,7 @@ const RoomDetails = () => {
         onSuccess: () => {
             newBookingHandler();
             notification.success({ message: 'Booking Successful', description: `Payment of GHS ${(daysOfStay * pricePerNight)} was successful`, placement: 'topRight' });
+
             router.push('/bookings/me');
 
         },

@@ -116,7 +116,7 @@ const RoomDetails = () => {
                     'Content-Type': 'application/json'
                 }
             }
-            const { data } = await axios.post(`/api/bookings`, bookingData, config)
+            const { data } = await axios.post(`$/api/bookings`, bookingData, config)
             if (data.error) {
                 setBookingError(data.error)
             }
