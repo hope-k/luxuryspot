@@ -14,7 +14,6 @@ import { useSession } from 'next-auth/react'
 
 
 const BookingDetail = () => {
-
     const { data: session } = useSession()
     const { user } = session;
     const dispatch = useDispatch();

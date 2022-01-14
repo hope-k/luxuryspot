@@ -5,13 +5,13 @@ import absoluteUrl from 'next-absolute-url'
 
 
 
-export const getMyBookings = createAsyncThunk('myBookings/getMyBookings', async ({ authCookie, req }) => {
+export const getMyBookings = createAsyncThunk('myBookings/getMyBookings', async ({ auth, req }) => {
 
     try {
         const { origin } = absoluteUrl(req);
         const config = {
             headers: {
-                cookie: authCookie
+                cookie: cookie
             }
         }
 

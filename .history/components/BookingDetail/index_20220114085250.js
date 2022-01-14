@@ -20,6 +20,7 @@ const BookingDetail = () => {
     const dispatch = useDispatch();
     const { error, myBookingsDetail } = useSelector(state => state.myBookingsDetail)
     useEffect(() => {
+        console.log()
         if (error) {
             toast.error(error)
             dispatch(clearMyBookingsDetailError())

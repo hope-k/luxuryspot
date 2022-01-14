@@ -1,19 +1,19 @@
 import React from 'react'
 import { getSession } from 'next-auth/react'
 import Layout from '../../components/Layout';
-import { MyBookings } from '../../components/MyBookings';
 import { wrapper } from '../../redux/store';
-import {getMyBookings} from '../../redux/Slice/myBookingsSlice'
+import BookingDetail from '../../components/BookingDetail';
+import { getMyBookingsDetail } from '../../redux/Slice/myBookingsDetailSlice';
 
 const MyBookingsPage = () => {
     return (
-        <Layout title='My Bookings'>
-            <MyBookings />
+        <Layout title='Booking Details'>
+            <BookingDetail />
         </Layout>
     )
 }
-export const getServerSideProps = wrapper.getServerSideProps((store) => 
-    async ({ req }) => {
+export const getServerSideProps = wrapper.getServerSideProps((store) =>
+    async ({ req, params }) => {
         const session = await getSession({ req });
         if (!session) {
             return {
@@ -24,11 +24,8 @@ export const getServerSideProps = wrapper.getServerSideProps((store) =>
 
             }
         }
-        const bookingObj = {
-            authCookie: req.headers.cookie,
-            req: req
-        }
-        await store.dispatch(getMyBookings(bookingObj))
+        const thunkObj = {authCookie: req.headers.cookie, id: params.id, req: req}
+        await store.dispatch(getMyBookingsDetail(thunkObj))
         return {
             props: { session }
         }

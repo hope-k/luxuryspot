@@ -28,7 +28,7 @@ export const getServerSideProps = wrapper.getServerSideProps((store) =>
             authCookie: req.headers.cookie,
             req: req
         }
-        await store.dispatch(getMyBookings(bookingObj))
+        await store.dispatch(getMyBookings(bookingObj)
         return {
             props: { session }
         }

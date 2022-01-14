@@ -1,19 +1,18 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { NEXT_URL } from '../../config/config';
-import absoluteUrl from 'next-absolute-url';
+import {}
 //thunk action to get all rooms
 
 
 
-export const getMyBookingsDetail = createAsyncThunk('myBookingsDetail/getMyBookingsDetail', async ({id, authCookie, req}) => {
+export const getMyBookingsDetail = createAsyncThunk('myBookingsDetail/getMyBookingsDetail', async ({id, authCookie}) => {
     const config = {
         headers: {
             cookie: authCookie
         }
     }
     try {
-        const {origin} = absoluteUrl(req)
         const { data } = await axios.get(`${origin}/api/bookings/${id}`, config);
         return data
 

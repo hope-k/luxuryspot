@@ -11,7 +11,7 @@ export const getMyBookings = createAsyncThunk('myBookings/getMyBookings', async 
         const { origin } = absoluteUrl(req);
         const config = {
             headers: {
-                cookie: authCookie
+                cookie: auth
             }
         }
 
