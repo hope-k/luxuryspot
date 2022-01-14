@@ -14,14 +14,10 @@ export default function Index() {
         <>
             {
                 loaded &&
-                <>
-                    <div style={{ backgroundImage: "url(/images/searchbg.jpg)", width: '100%', height: '1120px', position: 'absolute', filter: 'brightness(30%)'  }} >
-
-                    </div>
-                    <Layout title='Search Rooms'>
-                        <Search />
-                    </Layout>
-                </>
+                
+                <Layout title='Search Rooms' style={{ backgroundImage: "url(/images/searchbg.jpg)" }} className="searchBackground">
+                    <Search />
+                </Layout>
             }
         </>
     )

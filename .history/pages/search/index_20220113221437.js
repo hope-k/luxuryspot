@@ -15,7 +15,7 @@ export default function Index() {
             {
                 loaded &&
                 <>
-                    <div style={{ backgroundImage: "url(/images/searchbg.jpg)", width: '100%', height: '1120px', position: 'absolute', filter: 'brightness(30%)'  }} >
+                    <div style={{ backgroundImage: "url(/images/searchbg.jpg)", width: '100%', height: '' }} >
 
                     </div>
                     <Layout title='Search Rooms'>
