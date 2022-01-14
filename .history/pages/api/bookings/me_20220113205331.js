@@ -8,7 +8,8 @@ dbConnect();
 
 
 
-handler.use(isAuthenticatedUser).get(myBookings);
+handler.use(isAuthenticatedUser)
+.get(myBookings);
 
 
 

@@ -118,23 +118,23 @@ const Header = () => {
                                         <a className='d-flex '>
                                             <Badge dot color='green' />
                                             {
-                                                !session?.user?.avatar?.url ?
+                                                !user?.avatar.url &&
                                                     <Avatar
                                                         style={{ backgroundColor: '#87d068', marginRight: '.8rem' }}
                                                         icon={<UserOutlined />}
                                                         size={{ xs: 35, sm: 35, md: 45, lg: 45, xl: 45 }}
 
 
-                                                    /> : (
-                                                        <figure className="avatar-nav avatar">
+                                                    /> (
+                                                    
+
+                                            }
+                                                        <figure className="avatar-nav avatar ">
 
                                                             <img src={!user ? session?.user?.avatar?.url : user?.avatar?.url}
                                                                 className='rounded-circle'
                                                             />
                                                         </figure>
-                                                    )
-
-                                            }
 
 
 

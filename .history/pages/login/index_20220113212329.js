@@ -12,13 +12,13 @@ export default function LoginPage() {
 
     return (
         <>
+            <div className="gradientBackground"></div>
             {
                 loaded &&
-                <div className="gradientBackground"></div>
             }
-            <Layout title='Sign In'>
-                <Login />
-            </Layout>
+                <Layout title='Sign In'>
+                    <Login />
+                </Layout>
         </>
     )
 }

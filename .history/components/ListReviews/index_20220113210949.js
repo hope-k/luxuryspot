@@ -12,7 +12,7 @@ const container = {
     show: {
         opacity: 1,
         x: 0,
-        transition:{ ease: [.6, .01, -.05, .95], duration: 1.9 }
+        transition:{ ease: [.6, .01, -.05, .95], duration: 1, staggerChildren: .6 }
 
     },
 
@@ -37,7 +37,8 @@ const ListReviews = ({ reviews }) => {
 
     return (
         <div className="reviews w-75 rale fw-bold">
-            <h3 ref={ref}>Reviews:</h3>
+            <h3 ref={ref}
+>Reviews:</h3>
             <hr />
             {
                 sortReviews && sortReviews.map((review) =>

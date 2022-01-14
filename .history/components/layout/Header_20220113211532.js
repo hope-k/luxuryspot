@@ -126,7 +126,7 @@ const Header = () => {
 
 
                                                     /> : (
-                                                        <figure className="avatar-nav avatar">
+                                                        <figure className="avatar-nav avatar ">
 
                                                             <img src={!user ? session?.user?.avatar?.url : user?.avatar?.url}
                                                                 className='rounded-circle'
