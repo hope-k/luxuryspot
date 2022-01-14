@@ -265,7 +265,7 @@ const deleteUser = asyncErrorHandler(async (req, res) => {
             throw new Error('User not found with this id')
         }
         //remove user avatar
-        if (user?.avatar !== {}) {
+        if (user.avatar !== {}) {
             await cloudinary.uploader.destroy(user.avatar.public_id)
             await user.remove();
 

@@ -25,11 +25,11 @@ const registerUser = asyncErrorHandler(async (req, res) => {
                 folder: `bookit/avatars`,
                 width: '150',
                 crop: 'scale'
-
+    
             })
             avatar.public_id = result.public_id
             avatar.url = result.secure_url
-
+    
         }
         const { name, email, password } = req.body
         //always await async await events
@@ -265,11 +265,9 @@ const deleteUser = asyncErrorHandler(async (req, res) => {
             throw new Error('User not found with this id')
         }
         //remove user avatar
-        if (user?.avatar !== {}) {
-            await cloudinary.uploader.destroy(user.avatar.public_id)
-            await user.remove();
-
-        }
+        if(user.avatar !==)
+        await cloudinary.uploader.destroy(user.avatar.public_id)
+        await user.remove();
 
 
         res.status(200).json({
