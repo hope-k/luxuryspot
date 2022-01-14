@@ -14,10 +14,10 @@ export default function LoginPage() {
         <>
             <img src='/images/bg.jpg' className="gradientBackground"></img>
             {
-                loaded &&
-                <Layout title='Sign In'>
-                    <Login />
-                </Layout>
+                loaded && 
+            <Layout title='Sign In'>
+                <Login />
+            </Layout>
             }
         </>
     )

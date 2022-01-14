@@ -14,11 +14,11 @@ export default function Index() {
         <>
             <img src='/images/searchbg.jpg' className="searchBackground"></img>
             {
-                loaded &&
-                <Layout title='Search Rooms'>
-                    <Search />
-                </Layout>
+                loaded && 
             }
+            <Layout title='Search Rooms'>
+                <Search />
+            </Layout>
         </>
     )
 }
