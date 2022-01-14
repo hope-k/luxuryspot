@@ -13,6 +13,7 @@ export default function LoginPage() {
     return (
         <>
             <img src='/images/bg.jpg' className="gradientBackground"></img>
+            
             <Layout title='Sign In'>
                 <Login />
             </Layout>

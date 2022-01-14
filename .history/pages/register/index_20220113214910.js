@@ -1,24 +1,32 @@
 import React from 'react'
-import Login from '../../components/Login/Login'
 import Layout from '../../components/Layout';
-import { getSession } from 'next-auth/react'
+import Register from '../../components/Register';
+import { getSession } from 'next-auth/react';
 import { useState, useEffect } from 'react'
 
-export default function LoginPage() {
+
+export default function RegisterPage() {
     const [loaded, setLoaded] = useState(false);
     useEffect(() => {
         setLoaded(true)
     }, [])
-
     return (
         <>
+
             <img src='/images/bg.jpg' className="gradientBackground"></img>
-            <Layout title='Sign In'>
-                <Login />
-            </Layout>
+            {
+                loaded &&
+                <Layout title='Sign Up'>
+                    <Register />
+                </Layout>
+            }
+
+
         </>
     )
 }
+
+
 export async function getServerSideProps({ req }) {
     const session = await getSession({ req });
     if (session) {
@@ -27,12 +35,9 @@ export async function getServerSideProps({ req }) {
                 destination: '/',
                 permanent: false
             }
-
         }
     }
     return {
         props: { session }
     }
 }
-
-

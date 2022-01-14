@@ -746,6 +746,7 @@ input[type=text]:focus, [type=email]:focus, [type=password]:focus{
   background-repeat: no-repeat;
   background-position: right center;
   background-size: 300px 100px;
+  background: url('/images/searchbg.jpg');
   filter: brightness(30%);
 
 }

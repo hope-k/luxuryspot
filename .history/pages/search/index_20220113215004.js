@@ -12,11 +12,13 @@ export default function Index() {
 
     return (
         <>
-            <img src='/images/searchbg.jpg' className="searchBackground"></img>
-
-            <Layout title='Search Rooms'>
-                <Search />
-            </Layout>
+            <img src= className="searchBackground"></img>
+            {
+                loaded &&
+                <Layout title='Search Rooms'>
+                    <Search />
+                </Layout>
+            }
         </>
     )
 }
