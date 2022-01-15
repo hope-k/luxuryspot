@@ -18,11 +18,7 @@ export const AllBookings = () => {
     const { bookings, error, loading, success } = useSelector(state => state.allAdminBookings)
     const { error: deleteError, loading: deleteLoading, success: deleteSuccess } = useSelector(state => state.deleteBooking)
     useEffect(() => {
-        dispatch(allAdminBookings());
-        if (error) {
-            toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, });
-            dispatch(clearAdminBookingsError())
-        }         
+        dispatch(allAdminBookings());      
         if (deleteError) {
             toast.error(deleteError, { theme: 'colored', style: { borderRadius: '2rem' }, });
             dispatch(clearDeleteBookingError())
@@ -32,7 +28,7 @@ export const AllBookings = () => {
             dispatch(resetDeleteBooking());
         } 
 
-    }, [dispatch, error, deleteError, deleteSuccess])
+    }, [dispatch, deleteError, deleteSuccess])
     const deleteBookingHandler = (id) => {
         dispatch(deleteBooking(id))
     }
