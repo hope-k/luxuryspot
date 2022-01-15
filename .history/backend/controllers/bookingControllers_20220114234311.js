@@ -170,11 +170,11 @@ const getMyBookingsDetail = asyncErrorHandler(async (req, res) => {
 
     try {
         const bookings = await Booking.findById(req.query.id).
-            populate({
+            .populate({
                 path: 'room',
                 select: 'name pricePerNight images'
-            }).
-            populate({
+            })
+            .populate({
                 path: 'user',
                 select: 'name email'
             })

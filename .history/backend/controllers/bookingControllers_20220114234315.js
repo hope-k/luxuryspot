@@ -173,8 +173,8 @@ const getMyBookingsDetail = asyncErrorHandler(async (req, res) => {
             populate({
                 path: 'room',
                 select: 'name pricePerNight images'
-            }).
-            populate({
+            })
+            .populate({
                 path: 'user',
                 select: 'name email'
             })

@@ -66,7 +66,7 @@ const Header = () => {
                     </>
                 )
             }
-            <Menu.Item key='1' className='rale fw-bold'>
+            <Menu.Item key='1' className='rale fw-bold w-100'>
 
                 <Link href='/bookings/me' >
                     <a>My Bookings</a>

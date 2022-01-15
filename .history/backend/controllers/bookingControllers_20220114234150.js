@@ -141,8 +141,8 @@ const myBookings = asyncErrorHandler(async (req, res) => {
                 path: 'room',
                 select: 'name pricePerNight images',
 
-            }).
-            populate({
+            })
+            .populate({
                 path: 'user',
                 select: 'name email'
             })
@@ -169,12 +169,12 @@ const myBookings = asyncErrorHandler(async (req, res) => {
 const getMyBookingsDetail = asyncErrorHandler(async (req, res) => {
 
     try {
-        const bookings = await Booking.findById(req.query.id).
-            populate({
+        const bookings = await Booking.findById(req.query.id)
+            .populate({
                 path: 'room',
                 select: 'name pricePerNight images'
-            }).
-            populate({
+            })
+            .populate({
                 path: 'user',
                 select: 'name email'
             })
@@ -198,12 +198,12 @@ const getMyBookingsDetail = asyncErrorHandler(async (req, res) => {
 const allAdminBookings = asyncErrorHandler(async (req, res) => {
 
     try {
-        const bookings = await Booking.find().
-            populate({
+        const bookings = await Booking.find()
+            .populate({
                 path: 'room',
                 select: 'name pricePerNight images'
-            }).
-            populate({
+            })
+            .populate({
                 path: 'user',
                 select: 'name email'
             })

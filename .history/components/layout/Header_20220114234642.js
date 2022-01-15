@@ -44,17 +44,17 @@ const Header = () => {
                                     <a>- Rooms</a>
                                 </Link>
                             </Menu.Item>
-                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold w-100'>
+                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold'>
                                 <Link href='/admin/bookings' passHref>
                                     <a>- Bookings</a>
                                 </Link>
                             </Menu.Item>
-                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold w-100'>
+                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold'>
                                 <Link href='/admin/users' passHref>
                                     <a>- Users</a>
                                 </Link>
                             </Menu.Item>
-                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold w-100'>
+                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold'>
                                 <Link href='/admin/reviews' passHref>
                                     <a>- Reviews</a>
                                 </Link>

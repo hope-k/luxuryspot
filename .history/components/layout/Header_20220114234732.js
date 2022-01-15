@@ -54,7 +54,7 @@ const Header = () => {
                                     <a>- Users</a>
                                 </Link>
                             </Menu.Item>
-                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold w-100'>
+                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold '>
                                 <Link href='/admin/reviews' passHref>
                                     <a>- Reviews</a>
                                 </Link>

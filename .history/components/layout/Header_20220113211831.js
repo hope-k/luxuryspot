@@ -39,22 +39,22 @@ const Header = () => {
                             <Badge dot color='cyan' className='m-2 antBadge' style={{ position: 'absolute', right: '3rem', top: '.1rem' }} />
                         </motion.div>
                         <Menu.ItemGroup title='Admin Session'>
-                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold w-100'>
+                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold'>
                                 <Link href='/admin/rooms' passHref>
                                     <a>- Rooms</a>
                                 </Link>
                             </Menu.Item>
-                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold w-100'>
+                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold'>
                                 <Link href='/admin/bookings' passHref>
                                     <a>- Bookings</a>
                                 </Link>
                             </Menu.Item>
-                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold w-100'>
+                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold'>
                                 <Link href='/admin/users' passHref>
                                     <a>- Users</a>
                                 </Link>
                             </Menu.Item>
-                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold w-100'>
+                            <Menu.Item className='addRadius p-2 m-2 rale fw-bold'>
                                 <Link href='/admin/reviews' passHref>
                                     <a>- Reviews</a>
                                 </Link>
