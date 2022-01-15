@@ -58,7 +58,7 @@ const checkRoomAvailability = asyncErrorHandler(async (req, res) => {
 
 });
 
-//create booking  => /api/bookings/
+//check room availability  => /api/bookings/checkAvailability
 const createBooking = asyncErrorHandler(async (req, res) => {
     const {
         room,
