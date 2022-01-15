@@ -43,7 +43,7 @@ const NewRoom = () => {
         }
         if (success) {
             toast.success('Room Created Successfully', { theme: 'colored', style: { borderRadius: '2rem' }, });
-            router.push('/admin/rooms');
+            router.push('/admin/rooms')
             dispatch(resetNewAdminRoom());
 
         }
