@@ -33,7 +33,7 @@ const Layout = ({ children, title = 'Book Best Apartments' }) => {
                         <meta name='viewport' content='initial-scale=1.0' />
                     </Head>
                     <Header />
-                    <ToastContainer position='bottom-right' transition={Slide} />
+                    <ToastContainer position='bottom-right' />
                         {children}
                     <Footer />
                 </motion.main>
