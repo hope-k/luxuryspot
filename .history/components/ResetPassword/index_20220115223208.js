@@ -46,7 +46,7 @@ const ResetPassword = () => {
         <div className="row wrapper">
             <div className="col-10 col-lg-5">
                 <form className="shadow-lg addRadius fw-normal formBackground text-white" onSubmit={onSubmit}>
-                    <h1 className="mb-3 fw-light rale text-white">Enter Your New Password</h1>
+                    <h1 className="mb-3 fw-light rale">Enter Your New Password</h1>
 
                     <div className="form-group rale fw-bold">
                         <label htmlFor="password_field">Password</label>
