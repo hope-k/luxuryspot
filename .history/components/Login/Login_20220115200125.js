@@ -10,7 +10,7 @@ import Image from 'next/image'
 const Login = () => {
     useEffect(() => {
         notification.info({
-            duration: 60,
+            duration: 15,
             className: 'addRadiusCarousel',
             message: "Login in as admin",
             description: "Login in as admin to create, read, update and delete room, users, bookings etc. Use these logins to login as an admin. || Email: admin@gmail.com || Password: kumordzie"
