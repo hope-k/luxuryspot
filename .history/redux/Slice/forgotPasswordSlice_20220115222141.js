@@ -7,7 +7,7 @@ const config = {
     }
 }
 export const forgotPassword = createAsyncThunk('forgotPassword/forgotPassword', async (userData) => {
-    const { data } = await axios.post(`/api/password/forgot`, userData, config);
+    const { data } = await axios.post(`$/api/password/forgot`, userData, config);
     return data;
 })
 

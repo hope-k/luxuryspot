@@ -7,7 +7,8 @@ const config = {
     }
 }
 export const forgotPassword = createAsyncThunk('forgotPassword/forgotPassword', async (userData) => {
-    const { data } = await axios.post(`/api/password/forgot`, userData, config);
+    console.group('REDUX EMAIL-------------', userData)
+    const { data } = await axios.post(`$/api/password/forgot`, userData, config);
     return data;
 })
 
