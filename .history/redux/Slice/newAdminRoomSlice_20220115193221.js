@@ -35,7 +35,7 @@ export const newAdminRoomSlice = createSlice({
             state.error = null
         },       
         resetNewAdminRoom: (state) => {
-            state.success = false
+            state.success = null
         }
 
 

@@ -23,7 +23,7 @@ export const createAdminRoom = createAsyncThunk('room/getRoom', async (roomData)
 
 const initialState = {
     loading: false,
-    success: false,
+    success: null,
     error: null
 }
 
@@ -35,7 +35,7 @@ export const newAdminRoomSlice = createSlice({
             state.error = null
         },       
         resetNewAdminRoom: (state) => {
-            state.success = false
+            state.success = null
         }
 
 
