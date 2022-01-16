@@ -602,7 +602,7 @@ input::placeholder {
 }
 
 .rale{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", "Segoe UI";
+  font-family: 'Quicksand', sans-serif;
 }
 .imageThumb{
   border: 2px dashed #ccc;

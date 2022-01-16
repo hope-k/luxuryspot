@@ -602,7 +602,7 @@ input::placeholder {
 }
 
 .rale{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", "Segoe UI";
+  font-family: 'Quicksand', sans-serif;
 }
 .imageThumb{
   border: 2px dashed #ccc;
@@ -780,7 +780,7 @@ input[type=text]:focus, [type=email]:focus, [type=password]:focus{
   align-items: center;
 }
 .customIntroTitle{
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 7rem;
 
 }
