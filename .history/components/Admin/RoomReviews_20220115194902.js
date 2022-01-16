@@ -22,7 +22,6 @@ const RoomReviews = () => {
     const { loading, reviews } = useSelector(state => state.roomReviews);
     const { success: deleteSuccess, error: deleteError} = useSelector(state => state.deleteReview)
     useEffect(() => {
-        notification.info({ message: "You can get the Room Id from Admin Session - ROOMS", duration: 10000, className: "addRadiusCarousel" })
         if (roomId !== '') {
             dispatch(getRoomReviews(roomId))
         }

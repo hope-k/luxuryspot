@@ -7,7 +7,7 @@ import Link from 'next/link'
 import easyinvoice from 'easyinvoice'
 import moment from 'moment'
 import { useRouter } from 'next/router'
-import { Alert, notification } from 'antd';
+import { Alert } from 'antd';
 import { BsTrash, BsPlusCircleDotted } from 'react-icons/bs'
 import Loader from '../layout/Loader'
 import { getRoomReviews } from '../../redux/Slice/getRoomReviewsSlice';
@@ -22,7 +22,6 @@ const RoomReviews = () => {
     const { loading, reviews } = useSelector(state => state.roomReviews);
     const { success: deleteSuccess, error: deleteError} = useSelector(state => state.deleteReview)
     useEffect(() => {
-        notification.info({ message: "You can get the Room Id from Admin Session - ROOMS", duration: 10000, className: "addRadiusCarousel" })
         if (roomId !== '') {
             dispatch(getRoomReviews(roomId))
         }
