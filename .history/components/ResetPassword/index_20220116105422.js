@@ -32,8 +32,12 @@ const ResetPassword = () => {
     useEffect(() => {
         if (success) {
             toast.success(success, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            notification.info({
+                message: "Check spam if you do not see the email in your inbox"
+                className: "addRadiusCarousel"
+            })
             dispatch(clearResetSuccess());
-            router.push('/login');
+            router.push('/login')
         }
         if (error) {
             toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, });
@@ -90,4 +94,4 @@ const ResetPassword = () => {
     )
 }
 
-export default ResetPassword;
+export default ResetPassword

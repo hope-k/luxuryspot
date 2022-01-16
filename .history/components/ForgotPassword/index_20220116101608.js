@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import Loader from '../layout/Loader';
 import { clearForgotPasswordError, forgotPassword, resetForgotPassword } from '../../redux/Slice/forgotPasswordSlice';
 import ButtonLoader from '../ButtonLoader';
-import { notification } from 'antd'
+import {notification}
 
 
 const ForgotPassword = () => {

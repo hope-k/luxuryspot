@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../../../components/Layout';
-import ResetPassword from '../../../components/ResetPassword';
+import ResetPas4sword from '../../../components/ResetPassword';
 
 
 export default function ForgotPasswordPage() {

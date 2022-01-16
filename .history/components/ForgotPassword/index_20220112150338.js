@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import Loader from '../layout/Loader';
 import { clearForgotPasswordError, forgotPassword, resetForgotPassword } from '../../redux/Slice/forgotPasswordSlice';
 import ButtonLoader from '../ButtonLoader';
-import { notification } from 'antd'
+
 
 
 const ForgotPassword = () => {
@@ -16,11 +16,6 @@ const ForgotPassword = () => {
 
     useEffect(() => {
         if (success) {
-            notification.info({
-                message: "Check spam messages if you do not see the email in your inbox",
-                className: "addRadiusCarousel",
-                duration: 0
-            })
             toast.success(success, { theme: 'colored', style: { borderRadius: '2rem' }, });
             dispatch(resetForgotPassword());
         }

@@ -33,7 +33,6 @@ const ResetPassword = () => {
         if (success) {
             toast.success(success, { theme: 'colored', style: { borderRadius: '2rem' }, });
             dispatch(clearResetSuccess());
-            router.push('/login');
         }
         if (error) {
             toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, });
@@ -90,4 +89,4 @@ const ResetPassword = () => {
     )
 }
 
-export default ResetPassword;
+export default ResetPassword

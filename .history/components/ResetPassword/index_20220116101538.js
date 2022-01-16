@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { clearUpdateUserError, updateUser } from '../../redux/Slice/updateUserSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/router';
 import Loader from '../layout/Loader';
 import ButtonLoader from '../ButtonLoader';
 import { resetPassword, clearResetPasswordError, clearResetSuccess } from '../../redux/Slice/resetPasswordSlice';
+import { notification } from 'antd';
+import { duration } from 'moment';
+
 
 const ResetPassword = () => {
     const router = useRouter()
@@ -32,8 +34,9 @@ const ResetPassword = () => {
     useEffect(() => {
         if (success) {
             toast.success(success, { theme: 'colored', style: { borderRadius: '2rem' }, });
+
             dispatch(clearResetSuccess());
-            router.push('/login');
+            router.push('/login')
         }
         if (error) {
             toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, });
@@ -90,4 +93,4 @@ const ResetPassword = () => {
     )
 }
 
-export default ResetPassword;
+export default ResetPassword
