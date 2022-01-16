@@ -110,48 +110,42 @@ const updateUserProfile = asyncErrorHandler(async (req, res) => {
 //Forgot password /api/password/forgot
 const forgotPassword = asyncErrorHandler(async (req, res) => {
     //always await async await events
-    try{
-        const user = await User.findOne({ email: req.body.email })
     
-        if (!user) {
-            throw new Error('User not found with this email')
-        }
-    
-    
-    
-        //get resetToken
-        const resetToken = await user.createResetPasswordToken();
-        await user.save({ validateBeforeSave: false })
-        //get domain
-        const { origin } = absoluteUrl(req)
-    
-        //create password reset url
-        const resetUrl = `${origin}/password/reset/${resetToken}`
-        const message = `Your password reset url is: \n\n ${resetUrl} \n This url will expire in 30 minutes \n\n Ignore if you did not request for a reset - Hope K`
-        try {
-            await sendEmail({
-                email: user.email,
-                subject: 'Luxuryspot password recovery',
-                message: message
-            })
-    
-            res.status(200).json({
-                success: true,
-                message: `Email successfully sent to ${user.email}`
-            })
-        } catch (err) {
-            user.resetPasswordToken = undefined;
-            user.resetPasswordExpire = undefined;
-            await user.save({ validateBeforeSave: false });
-            return next(new ErrorHandler(err.message, 404))
-    
-    
-        }
+    const user = await User.findOne({ email: req.body.email })
 
-    }catch(err){
-        res.json({
-            error: err.message
+    if (!user) {
+        throw new Error('User not found with this email')
+    }
+
+
+
+    //get resetToken
+    const resetToken = await user.createResetPasswordToken();
+    await user.save({ validateBeforeSave: false })
+    //get domain
+    const { origin } = absoluteUrl(req)
+
+    //create password reset url
+    const resetUrl = `${origin}/password/reset/${resetToken}`
+    const message = `Your password reset url is: \n\n ${resetUrl} \n This url will expire in 30 minutes \n\n Ignore if you did not request for a reset - Hope K`
+    try {
+        await sendEmail({
+            email: user.email,
+            subject: 'Luxuryspot password recovery',
+            message: message
         })
+
+        res.status(200).json({
+            success: true,
+            message: `Email successfully sent to ${user.email}`
+        })
+    } catch (err) {
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpire = undefined;
+        await user.save({ validateBeforeSave: false });
+        return next(new ErrorHandler(err.message, 404))
+
+
     }
 
 
