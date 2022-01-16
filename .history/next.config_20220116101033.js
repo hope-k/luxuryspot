@@ -11,7 +11,7 @@ module.exports = {
         SMTP_DOMAIN: 'sandbox058258850d2d448aab11dcf25ad62480.mailgun.org',
         SMTP_API_KEY: '438c2dfbd9c85267d2c293cf5616eab9-156db0f1-8fbf6ccf',
         SMTP_FROM_NAME: 'LuxuryApt',
-        SMTP_FROM_EMAIL: 'noreply@luxuryapt.com',
+        SMTP_FROM_EMAIL: 'noreply@luxurys.com',
         MONGO_URI: 'mongodb://hope21x:kumordzie@cluster0-shard-00-00.ufgdy.mongodb.net:27017,cluster0-shard-00-01.ufgdy.mongodb.net:27017,cluster0-shard-00-02.ufgdy.mongodb.net:27017/luxurySpot?ssl=true&replicaSet=atlas-j2ry9k-shard-0&authSource=admin&retryWrites=true&w=majority',
         NEXTAUTH_URL:'luxuryspot.vercel.app',
         NEXT_PUBLIC_URL: 'luxuryspot.vercel.app'
