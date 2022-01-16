@@ -780,7 +780,7 @@ input[type=text]:focus, [type=email]:focus, [type=password]:focus{
   align-items: center;
 }
 .customIntroTitle{
-  font-family: 'Raleway', sans-serif;
+font-family: 'Raleway', sans-serif;
   font-size: 7rem;
 
 }
