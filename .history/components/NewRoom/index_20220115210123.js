@@ -47,7 +47,7 @@ const NewRoom = () => {
             router.push('/admin/rooms');
 
         }
-    }, [error, success, dispatch]);
+    }, [error, success dispatch]);
 
     const onSubmit = (e) => {
         e.preventDefault();
