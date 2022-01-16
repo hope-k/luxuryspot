@@ -32,7 +32,8 @@ const ResetPassword = () => {
     useEffect(() => {
         if (success) {
             toast.success(success, { theme: 'colored', style: { borderRadius: '2rem' }, });
-            dispatch(clearResetSuccess())
+            dispatch(clearResetSuccess());
+            router.push('/login')
         }
         if (error) {
             toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, });
@@ -49,7 +50,7 @@ const ResetPassword = () => {
                     <h1 className="mb-3 fw-light rale text-white">Enter Your New Password</h1>
 
                     <div className="form-group rale fw-bold">
-                        <label htmlFor="password_field">Password</label>
+                        <label htmlFor="password_field">New Password</label>
                         <input
                             type="password"
                             id="password_field"

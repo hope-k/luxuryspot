@@ -2,6 +2,8 @@ import Booking from '../models/booking'
 import asyncErrorHandler from '../middlewares/asyncErrorHandler';
 import Moment from 'moment'
 import { extendMoment } from 'moment-range';
+import sendEmail from '../utils/sendEmail';
+
 
 const moment = extendMoment(Moment)
 //create new booking  => /api/bookings
@@ -84,6 +86,34 @@ const createBooking = asyncErrorHandler(async (req, res) => {
 
 
         });
+        const createdBooking = await Booking.findOne({ user: req.user._id, room: room  }).
+            populate({
+                path: 'user',
+                select: 'email name'
+            }).
+            populate({
+                path: 'room',
+                select: 'name'
+            }).exec(async function(err, booking){
+                const userName = booking?.user?.name
+                const bookedRoom = booking?.room?.name
+                const checkIn = moment(checkInDate).format('LLL');
+                const checkOut = moment(checkOutDate).format('LLL');
+                const message = `Dear ${userName}, Payment of GHS ${amountPaid} was Successful. \n\n You Booked a ${daysOfStay} day(s) stay at ${bookedRoom}. You are to Check In on ${checkIn} and Check Out on ${checkOut}`
+        
+        
+        
+                await sendEmail({
+                    email: booking.user.email,
+                    subject: 'Room Booking Successful',
+                    message: message
+                })
+            })
+
+
+
+
+
 
         res.status(200).json({
             booking: booking,

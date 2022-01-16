@@ -130,11 +130,11 @@ const forgotPassword = asyncErrorHandler(async (req, res) => {
 
     //create password reset url
     const resetUrl = `${origin}/password/reset/${resetToken}`
-    const message = `Your password reset url is: \n\n ${resetUrl} \n This url will expire in 30 minutes \n\n Ignore if you did not request for a reset`
+    const message = `Your password reset url is: \n\n ${resetUrl} \n This url will expire in 30 minutes \n\n Ignore if you did not request for a reset - Hope K`
     try {
         await sendEmail({
             email: user.email,
-            subject: 'LuxuryApt password recovery',
+            subject: 'Luxuryspot password recovery',
             message: message
         })
 
