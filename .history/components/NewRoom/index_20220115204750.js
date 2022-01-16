@@ -47,7 +47,7 @@ const NewRoom = () => {
             window.location.href('/admin/rooms');
 
         }
-    }, [error, dispatch]);
+    }, [error, success, dispatch]);
 
     const onSubmit = (e) => {
         e.preventDefault();

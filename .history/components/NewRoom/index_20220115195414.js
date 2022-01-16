@@ -44,10 +44,10 @@ const NewRoom = () => {
         if (success === true) {
             dispatch(resetNewAdminRoom());
             toast.success('Room Created Successfully', { theme: 'colored', style: { borderRadius: '2rem' }, });
-            window.location.href('/admin/rooms');
+            window.location('/admin/rooms');
 
         }
-    }, [error, dispatch]);
+    }, [error, success, dispatch]);
 
     const onSubmit = (e) => {
         e.preventDefault();
