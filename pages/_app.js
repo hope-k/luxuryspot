@@ -18,6 +18,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     if (document.readyState !== 'loading') {
       setLoaded(true)
     }
+
   }, [])
   let theme = createTheme();
   theme = responsiveFontSizes(theme);
