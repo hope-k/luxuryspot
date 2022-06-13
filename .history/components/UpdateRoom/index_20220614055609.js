@@ -218,7 +218,7 @@ const UpdateRoom = () => {
                                             }
                                         </Select>
                                     </div>
-                                    <label className="mb-3">Room Features</label>
+                                    <label className="mb-3"4>Room Features</label>
                                     <div className="form-check rale fw-bold">
                                         <input
                                             className="form-check-input addRadius"

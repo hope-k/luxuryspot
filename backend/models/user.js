@@ -75,7 +75,7 @@ userSchema.methods.createResetPasswordToken = function(){
     this.resetPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex');
     //set password token expire 
     this.resetPasswordExpire = Date.now() + 30 * 60 * 1000
-    //return the unhashed token and save the hashed one to the db
+    //return the unhashed token and save the hashed one to the db 
     return resetToken
 
 }

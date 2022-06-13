@@ -2,7 +2,7 @@ import Room from '../models/room';
 import { ErrorHandler } from '../utils/errorHandler';
 import asyncErrorHandler from '../middlewares/asyncErrorHandler';
 import APIFeatures from '../utils/apiFeatures';
-const cloudinary = require('cloudinary').v2;
+const cloudinary = require('cloudinary').v2
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

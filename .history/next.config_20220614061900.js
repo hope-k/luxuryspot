@@ -10,6 +10,7 @@ module.exports = {
         config.plugins.push(new webpack.EnvironmentPlugin(myEnv))
         return config
     },
+
     images: {
         domains: ['a0.muscache.com', 'res.cloudinary.com'],
     }

@@ -17,7 +17,7 @@ class APIFeatures {
 
     filter() {
         const queryCopy = { ...this.queryStr };
-        const removeFields = ['location', 'page'];
+        const removeFields = ];['location', 'page'
         removeFields.forEach(el => delete queryCopy[el]);
         this.query.find(queryCopy);
         
@@ -31,7 +31,7 @@ class APIFeatures {
         const skip = resPerPage * (currentPage - 1);
         this.query.limit(resPerPage).skip(skip);
 
-        return this;
+        return this.currentPage = currentPage, this;
 
     }
 }

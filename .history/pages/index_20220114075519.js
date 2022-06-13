@@ -7,7 +7,7 @@ import { wrapper } from '../redux/store';
 export default function Index() {
   return (
     <Layout>
-      <Home/>
+      <Home />
     </Layout>
   )
 }

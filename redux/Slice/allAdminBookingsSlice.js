@@ -8,7 +8,6 @@ import { NEXT_URL } from '../../config/config';
 export const allAdminBookings = createAsyncThunk('allAdminBookings/allAdminBookings', async () => {
 
     try {
- 
 
         const { data } = await axios.get(`/api/admin/bookings`);
         return data
