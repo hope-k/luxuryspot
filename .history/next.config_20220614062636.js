@@ -13,7 +13,7 @@ module.exports = {
     env: {
         NEXTAUTH_URL: 'luxuryspot.vercel.app',
         NEXT_PUBLIC_URL: 'luxuryspot.vercel.app'
-    },
+    }
     images: {
         domains: ['a0.muscache.com', 'res.cloudinary.com'],
     }
