@@ -150,7 +150,7 @@ const RoomDetails = () => {
 
         email: user?.email,
         amount: (daysOfStay * pricePerNight) * 100,
-        publicKey: process.env.NEXT_PUBLIC_PAYSTACK_API_KEY,
+        publicKey: process.env.PAYSTACK_API_KEY,
         currency: 'GHS',
         metadata: { checkInDate: checkInDate, checkOutDate: checkOutDate, daysOfStay: daysOfStay },
         firstname: user?.name,
