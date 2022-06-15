@@ -40,10 +40,6 @@ export const allAdminBookingsSlice = createSlice({
         resetAdminBookings: (state) => {
             state.success = null
         },
-        
-
-
-
     },
     extraReducers: {
         [allAdminBookings.fulfilled]: (state, action) => {
@@ -65,3 +61,5 @@ export const allAdminBookingsSlice = createSlice({
 })
 export const { clearAdminBookingsError, resetAdminBookings } = allAdminBookingsSlice.actions
 export default allAdminBookingsSlice.reducer
+
+
