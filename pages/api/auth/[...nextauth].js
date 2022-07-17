@@ -12,7 +12,7 @@ export default NextAuth({
         strategy: 'jwt',
         maxAge: 15 * 24 * 60 * 60,
     },
-    secret: 'MWpgryxBGo15xcgP1GUUy6l4F3n55HfQMF3',
+    secret: process.env.NEXT_PUBLIC_AUTH_SECRET,
     
     providers: [
         CredentialsProvider({
