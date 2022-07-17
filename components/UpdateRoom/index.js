@@ -43,16 +43,16 @@ const UpdateRoom = () => {
     useEffect(() => {
         dispatch(getRoom({ id: id, req: '' }));
         if (error) {
-            toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(error, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(clearUpdateRoomError());
         }
         if (roomError) {
-            toast.error(roomError, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(roomError, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(clearRoomError());
         }
 
         if (success) {
-            toast.success('Room Updated Successfully', { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.success('Room Updated Successfully', { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(resetUpdateRoom());
             router.push('/admin/rooms')
 

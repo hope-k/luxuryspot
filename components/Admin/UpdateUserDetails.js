@@ -25,7 +25,7 @@ const UpdateUserDetails = () => {
     useEffect(() => {
         dispatch(getUserDetails(id));
         if (error) {
-            toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(error, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(clearUpdateUserDetailsError());
         }
 

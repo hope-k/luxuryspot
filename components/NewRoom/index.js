@@ -38,11 +38,11 @@ const NewRoom = () => {
 
     useEffect(() => {
         if (error) {
-            toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(error, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(clearNewAdminRoomError());
         }
         if (success === true) {
-            toast.success('Room Created Successfully', { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.success('Room Created Successfully', { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(resetNewAdminRoom());
             router.push('/admin/rooms');
 
@@ -181,7 +181,7 @@ const NewRoom = () => {
                                 }
                             </Select>
                         </div>
-                        <label className="mb-3" className="fw-normal">Room Features</label>
+                        <label className="mb-3">Room Features</label>
                         <div className="form-check rale fw-bold">
                             <input
                                 className="form-check-input addRadius"

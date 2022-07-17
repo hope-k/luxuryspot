@@ -30,7 +30,7 @@ const Login = () => {
         })
         setLoading(false)
         if (result.error) {
-            toast.error(result.error, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(result.error, { theme: 'colored', style: { borderRadius: '1rem' }, });
         } else {
             window.location.href = '/'
         }

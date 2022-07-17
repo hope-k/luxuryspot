@@ -688,12 +688,13 @@ input::placeholder {
   background: rgba(999,999,999,.9);
   border: .7px solid black;
 }
-@media screen and max-width(580px){
 
+@media screen and (max-width: 580px){
   .antBadge{
     width: 10rem;
   }
 }
+
 .passwordInput{
   position: relative;
 }
@@ -701,7 +702,7 @@ input::placeholder {
   position: absolute;
   top: 2.6rem;
   right: 1rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   cursor: pointer;
   transition: all .85 ease-in;
   transition-timing-function: cubic-bezier(.6, .01, -.05, .95);

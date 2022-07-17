@@ -21,11 +21,11 @@ const ForgotPassword = () => {
                 className: "addRadiusCarousel",
                 duration: 0
             })
-            toast.success(success, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.success(success, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(resetForgotPassword());
         }
         if (error) {
-            toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, })
+            toast.error(error, { theme: 'colored', style: { borderRadius: '1rem' }, })
             dispatch(clearForgotPasswordError())
         }
     }, [error, dispatch, success])

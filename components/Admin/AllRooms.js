@@ -22,15 +22,15 @@ const AllRooms = () => {
     useEffect(() => {
         dispatch(getallAdminRooms())
         if (error) {
-            toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(error, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(clearAdminRoomsError())
         }
         if (deleteSuccess) {
-            toast.success('Room Deleted Successfully', { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.success('Room Deleted Successfully', { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(resetDeleteRoom());
         }
         if (deleteError) {
-            toast.error(deleteError, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(deleteError, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(clearDeleteRoomError())
         }
     }, [dispatch, error, deleteError, deleteSuccess])

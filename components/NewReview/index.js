@@ -31,11 +31,11 @@ const NewReview = () => {
     };
     useEffect(() => {
         if (error) {
-            toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(error, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(clearNewReviewsError())
         }
         if (success) {
-            toast.success('Review Successfully Posted', { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.success('Review Successfully Posted', { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(resetNewReviews());
             router.reload(window.location.pathname)
         }

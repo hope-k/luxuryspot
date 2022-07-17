@@ -157,10 +157,8 @@ const RoomDetails = () => {
         onSuccess: () => {
             newBookingHandler();
             notification.success({ message: 'Booking Successful', description: `Payment of GHS ${(daysOfStay * pricePerNight)} was successful`, placement: 'topRight' });
-            router.push('/bookings/me');
-
         },
-        onClose: () => toast.error('Payment Not Successful - You closed the payment portal', { theme: 'colored', style: { borderRadius: '2rem' }, })
+        onClose: () => toast.error('Payment Not Successful - You closed the payment portal', { theme: 'colored', style: { borderRadius: '1rem' }, })
 
 
 

@@ -31,7 +31,7 @@ const Register = () => {
     const { success, error, loading } = useSelector(state => state.registerUser);
     useEffect(() => {
         if (success) {
-            toast.success(success, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.success(success, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(resetRegister())
             setUser({
                 name: '',
@@ -43,7 +43,7 @@ const Register = () => {
 
         }
         if (error) {
-            toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(error, { theme: 'colored', style: { borderRadius: '1rem' }, });
             //always dispatch redux actions
             dispatch(clearRegisterUserError())
         }
@@ -113,7 +113,7 @@ const Register = () => {
                             </div>
 
                             <div className="form-group rale fw-bold passwordInput">
-                                <label htmlFor="password_field">Password <FiLock style={{marginBottom: '3px'}}/></label>
+                                <label htmlFor="password_field">Password <FiLock style={{ marginBottom: '3px' }} /></label>
                                 <input
                                     type={visible ? 'text' : 'password'}
                                     id="password_field"
@@ -124,14 +124,13 @@ const Register = () => {
                                 />
                                 {
                                     visible ?
-                                        <MotionInvisible
-                                            onClick={() => toggleVisibility()} className='passwordIcon'
-                                        />
+                                        <div onClick={() => toggleVisibility()} >
+                                            <MotionInvisible className='passwordIcon' />
+                                        </div>
                                         :
-                                        <MotionVisible
-                                            onClick={() => toggleVisibility()} className='passwordIcon'
-
-                                        />
+                                        <div onClick={() => toggleVisibility()}>
+                                            <MotionVisible className='passwordIcon' />
+                                        </div>
 
                                 }
                             </div>

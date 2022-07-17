@@ -62,7 +62,6 @@ const newRooms = asyncErrorHandler(async (req, res) => {
                 public_id: result.public_id,
                 url: result.secure_url
             });
-
             req.body.images = imagesLinks;
             req.body.user = req.user._id
         }

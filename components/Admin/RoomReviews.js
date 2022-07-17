@@ -27,11 +27,11 @@ const RoomReviews = () => {
             dispatch(getRoomReviews(roomId))
         }
         if (deleteSuccess) {
-            toast.success('Review Deleted Successfully', { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.success('Review Deleted Successfully', { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(resetDeleteReview());
         }
         if (deleteError) {
-            toast.error(deleteError, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(deleteError, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(clearDeleteReviewError())
         }
     }, [dispatch, roomId, deleteError, deleteSuccess])

@@ -57,11 +57,11 @@ const UpdateProfile = () => {
 
         }
         if (error) {
-            toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(error, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(clearUpdateUserError())
         }
         if (success) {
-            toast.success(success, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.success(success, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(resetUpdateUser())
 
 

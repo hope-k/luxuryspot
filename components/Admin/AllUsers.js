@@ -23,15 +23,15 @@ const AllUsers = () => {
     useEffect(() => {
         dispatch(getallAdminUsers())
         if (error) {
-            toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(error, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(clearAdminUsersError())
         }
         if (deleteSuccess) {
-            toast.success('User Deleted Successfully', { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.success('User Deleted Successfully', { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(resetDeleteUser());
         }
         if (deleteError) {
-            toast.error(deleteError, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(deleteError, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(clearDeleteUserError())
         }
     }, [dispatch, error, deleteError, deleteSuccess])

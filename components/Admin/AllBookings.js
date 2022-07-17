@@ -20,11 +20,11 @@ export const AllBookings = () => {
     useEffect(() => {
         dispatch(allAdminBookings());      
         if (deleteError) {
-            toast.error(deleteError, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(deleteError, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(clearDeleteBookingError())
         }         
         if (deleteSuccess) {
-            toast.success('Booking Deleted Successfully', { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.success('Booking Deleted Successfully', { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(resetDeleteBooking());
         } 
 

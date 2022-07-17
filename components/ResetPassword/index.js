@@ -31,12 +31,12 @@ const ResetPassword = () => {
     }
     useEffect(() => {
         if (success) {
-            toast.success(success, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.success(success, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(clearResetSuccess());
             router.push('/login');
         }
         if (error) {
-            toast.error(error, { theme: 'colored', style: { borderRadius: '2rem' }, });
+            toast.error(error, { theme: 'colored', style: { borderRadius: '1rem' }, });
             dispatch(clearResetPasswordError());
         }
 
