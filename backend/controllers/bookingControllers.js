@@ -102,7 +102,7 @@ const createBooking = asyncErrorHandler(async (req, res) => {
                 function capitalize(name){
                     return name.charAt(0).toUpperCase() + name.slice(1)
                 }
-                const message = `Dear ${capitalize(userName)}, Payment of GHS ${amountPaid} was Successful. \n\n You Booked a ${daysOfStay} day(s) stay at ${bookedRoom}. You are to Check In on ${checkIn} and Check Out on ${checkOut}`
+                const message = `Dear ${capitalize(userName)},\n\n Payment of GHS ${amountPaid} was Successful. \n\nYou Booked a ${daysOfStay} day(s) stay at ${bookedRoom}. You are to Check In on ${checkIn} and Check Out on ${checkOut}`
         
         
         

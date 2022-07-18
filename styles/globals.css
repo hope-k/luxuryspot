@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
 html,
 body {
   width: 100%;
@@ -6,7 +8,8 @@ body {
   padding: 0px;
   background: #efefef;
 }
-body a{
+
+body a {
   text-decoration: none;
   transition: .25s ease-in-out;
 }
@@ -249,7 +252,8 @@ nav {
 .stays-heading {
   font-weight: 700;
 }
-.addRadius{
+
+.addRadius {
   border-radius: 1rem;
 }
 
@@ -266,27 +270,21 @@ nav {
 .card {
   height: 100%;
   border: 0px;
-  color: white;
-  background-color: rgba(255, 255, 255, .6);
-  
+  border-radius: 2.2rem 2.2rem 2rem 2rem;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.648);
+
 
 }
-@media screen and (max-width: 580px){
-  .card{
-      background-color: rgba(000, 000, 2, 0.9);
-      
-  }
-}
+
+
 
 .card-title a {
   color: black;
   font-size: 1.2rem;
 }
-@media screen and (max-width: 580px){
-  .card-title a{
-      color: white;
-  }
-}
+
+
 
 .card-title a:hover {
   color: #e61e4d;
@@ -302,11 +300,8 @@ nav {
   font-size: 1.2rem;
   color: black;
 }
-@media screen and (max-width: 580px){
-  .card-text {
-    color: #ccc
-  }
-}
+
+
 
 .view-btn {
   background-color: #e61e4d;
@@ -318,7 +313,7 @@ nav {
 
 .card-img-top {
   border-radius: 0.8rem;
-  
+
 }
 
 .ratings {
@@ -546,73 +541,84 @@ input::placeholder {
 #description_404 {
   color: grey;
 }
-.imageHover:hover{
+
+.imageHover:hover {
   filter: brightness(60%);
   transform: scale(.98);
   transition: all .25s ease-in-out;
   border-radius: 0.8rem !important;
   cursor: pointer;
- 
+
 
 }
-.imageHover{
+
+.imageHover {
   transition: all .25s ease-in-out;
 }
-.headerAnimate{
+
+.headerAnimate {
   transition: all 5s ease-in-out;
 }
- 
+
 
 
 .text-deep-blue {
-    color: #0d6eed;
+  color: #0d6eed;
 }
 
-.dropdown-text{
-  text-transform: capitalize;    
+.dropdown-text {
+  text-transform: capitalize;
 }
-.ant-dropdown-position{
+
+.ant-dropdown-position {
   position: relative;
   left: 10rem;
   min-width: 210px;
   max-width: 220px;
 
 }
-@media screen and (max-width: 1104px){
-  .ant-dropdown-position{
+
+@media screen and (max-width: 1104px) {
+  .ant-dropdown-position {
     left: -3.8rem;
   }
 }
-.center-message{
+
+.center-message {
   position: absolute;
   top: 7rem;
   left: 0;
   height: 20rem;
   width: 20rem;
 }
-.pointer{
+
+.pointer {
   cursor: pointer;
 }
 
-@media screen and (max-width: 580px){
+@media screen and (max-width: 580px) {
   #review_btn {
     width: 100% !important;
     padding: .8rem;
   }
 }
 
-.rale{
-  font-family: 'Raleway', sans-serif;
+
+.rale {
+  font-family: 'Lato', sans-serif;
 }
-.imageThumb{
+
+.imageThumb {
   border: 2px dashed #ccc;
   width: 150px;
   height: 100px;
 
 }
+
 .custom-filee-input::-webkit-file-upload-button {
   visibility: hidden;
 }
+
 .custom-filee-input::before {
   content: '---> Upload Your Images';
   display: inline-block;
@@ -630,10 +636,12 @@ input::placeholder {
   width: 100%;
   transition: all .55s ease-in-out
 }
+
 .custom-filee-input:hover::before {
   border-color: black;
-  
+
 }
+
 .custom-filee-input:active::before {
   background: #9B1A2F;
 }
@@ -643,9 +651,11 @@ input::placeholder {
 .custom-fileee-input::-webkit-file-upload-button {
   visibility: hidden;
 }
+
 .custom-fileee-input::-webkit-file-selector-button {
   visibility: hidden;
 }
+
 .custom-fileee-input::before {
   content: '---> Upload Your Avatar';
   display: inline-block;
@@ -663,41 +673,45 @@ input::placeholder {
   width: 100%;
   transition: all .55s ease-in-out
 }
+
 .custom-fileee-input:hover::before {
   border-color: black;
-  
+
 }
 
 .custom-fileee-input:active::before {
   background: #9B1A2F;
 }
 
-.admin-header{
+.admin-header {
   border: 1px solid white;
   padding: 1rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
   border-radius: 3rem;
-  background: rgba(999,999,999,0.5);
+  background: rgba(999, 999, 999, 0.5);
 }
+
 .formBackground {
   background: rgba(36, 120, 189, 0.1);
   border: 1px solid white;
 }
+
 .dropdownBackground {
-  background: rgba(999,999,999,.9);
+  background: rgba(999, 999, 999, .9);
   border: .7px solid black;
 }
 
-@media screen and (max-width: 580px){
-  .antBadge{
+@media screen and (max-width: 580px) {
+  .antBadge {
     width: 10rem;
   }
 }
 
-.passwordInput{
+.passwordInput {
   position: relative;
 }
+
 .passwordIcon {
   position: absolute;
   top: 2.6rem;
@@ -717,34 +731,43 @@ input::placeholder {
   background-size: cover;
   background-position: center;
 
-  
+
 
 }
-.layoutContainer{
+
+.layoutContainer {
   position: relative;
   z-index: 10;
   overflow: hidden;
 
 }
-.customNav{
+
+.customNav {
   position: relative;
   z-index: 10;
 }
-input[type=text], [type=email], [type=password]{
+
+input[type=text],
+[type=email],
+[type=password] {
   background: #3083AA44;
-  color: white;  
+  color: white;
   font-weight: bold;
 
 }
-input[type=text]:focus, [type=email]:focus, [type=password]:focus{
+
+input[type=text]:focus,
+[type=email]:focus,
+[type=password]:focus {
   background: #7F9AAC59;
   color: white;
   font-weight: bold;
 }
 
-.textAreaCustom input[type=text]{
+.textAreaCustom input[type=text] {
   background: #7F9AAC59;
 }
+
 .searchBackground {
   position: absolute;
   filter: brightness(50%);
@@ -754,6 +777,7 @@ input[type=text]:focus, [type=email]:focus, [type=password]:focus{
   background-position: center center;
 
 }
+
 .updateBackground {
   position: absolute;
   width: 100%;
@@ -761,15 +785,16 @@ input[type=text]:focus, [type=email]:focus, [type=password]:focus{
   filter: brightness(30%);
 
 }
-.searchPlaceholder::placeholder{
+
+.searchPlaceholder::placeholder {
   color: #C2B3B3;
 }
 
-.addRadiusCarousel{
+.addRadiusCarousel {
   border-radius: 2rem !important;
 }
 
-.customIntro{
+.customIntro {
   display: flex;
   position: absolute;
   top: 0;
@@ -780,15 +805,18 @@ input[type=text]:focus, [type=email]:focus, [type=password]:focus{
   justify-content: center;
   align-items: center;
 }
-.customIntroTitle{
+
+.customIntroTitle {
   font-family: 'Raleway', sans-serif;
   font-size: 7rem;
 
 }
-.customIntroName{
+
+.customIntroName {
   font-size: 2rem;
 }
-.footerBackground{
+
+.footerBackground {
   position: relative;
   z-index: 10;
 }

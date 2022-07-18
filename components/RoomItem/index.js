@@ -34,7 +34,7 @@ const RoomItem = ({ room}) => {
     const { images, _id, name, pricePerNight, ratings, numOfReviews } = room
     return (
         <motion.div variants={container} className="col-sm-12 col-md-6 col-lg-3 my-3 " initial='hidden' animate='show'>
-            <motion.div variants={showItem} className="card p-2 addRadius shadow-sm ">
+            <motion.div variants={showItem} className="card p-1 addRadius shadow-sm ">
                 <Link href={`/room/${_id}`}>
                     <div className="card-img-top mx-auto imageHover addRadiusCarousel">
                         <ReactCarousel
@@ -47,7 +47,7 @@ const RoomItem = ({ room}) => {
                 </Link>
 
                 <div className="card-body d-flex flex-column">
-                    <h5 className="card-title  rale fw-bold">
+                    <h5 className="card-title  rale fw-bold ">
                         <Link href={`/room/${_id}`}>
                             <a>{name}</a>
                         </Link>
@@ -66,7 +66,7 @@ const RoomItem = ({ room}) => {
                         <span id="no_of_reviews">({numOfReviews} Reviews)</span>
                     </div>
 
-                    <button className="btn btn-block view-btn add">
+                    <button className="btn btn-block view-btn add addRadius">
                         <Link href={`/room/${_id}`}>
                             <a>View Details</a>
                         </Link>
