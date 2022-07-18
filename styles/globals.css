@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
 html,
 body {
@@ -605,7 +604,8 @@ input::placeholder {
 
 
 .rale {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway',
+  sans-serif;
 }
 
 .imageThumb {
